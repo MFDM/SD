@@ -1,0 +1,33 @@
+SoapServerFormatterSinkProvider serverProv = new SoapServerFormatterSinkProvider();
+serverProv.TypeFilterLevel = System.Runtime.Serialization.Formatters.TypeFilterLevel.Full;
+SoapClientFormatterSinkProvider clientProv = new SoapClientFormatterSinkProvider();
+IDictionary props = new Hashtable();
+props["port"] = 1234;
+HttpChannel ch = new HttpChannel(props, clientProv, serverProv);
+ChannelServices.RegisterChannel(ch, false);
+
+RemotingConfiguration.RegisterWellKnownServiceType(
+                 typeof(Peer),"RemotePeer.soap",WellKnownObjectMode.Singleton);
+                 
+
+//até aqui o que faz é do genero:
+//cria uma instancia de Peer (ver linha 9 e 10) para atender os pedidos, com o uri: 'http://localhost:1234/RemotePeer.soap'
+
+_peer = (IPeer)Activator.GetObject(
+                typeof(IPeer),
+                "http://localhost:1234/RemotePeer.soap");
+                
+//_peer é a interface que ocliente vai conhecer e utilizar, linhas 18 a 20 vai criar uma 'proxy' e ja pode comunicar entre eles
+
+
+ou seja, linha 9 e 10 crias servidor
+lina 18 a 20 crias o  cliente
+caso queiras um Peer, que é ambos fazes tudo normal até a linha10, depois é
+            
+_peer = (Peer)Activator.GetObject(
+                typeof(Peer),
+                "http://localhost:1234/RemotePeer.soap");
+                
+                
+mas isto apenas porque 'te conheces a ti proprio', tu criaste o Peer, logo sabes que é Peer e nao outra coisa, nao precisando de ser uma interface. Amanha posso explicar melhor que vamos fazer SD
+                
