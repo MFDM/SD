@@ -47,6 +47,7 @@
   <ItemGroup>
     <Compile Include="Music.cs" />
     <Compile Include="Peer.cs" />
+    <Compile Include="PeerOptions.cs" />
     <Compile Include="PeerRegistration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -55,6 +56,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlLoader.cs" />
     <EmbeddedResource Include="PeerRegistration.resx">
       <DependentUpon>PeerRegistration.cs</DependentUpon>
     </EmbeddedResource>
