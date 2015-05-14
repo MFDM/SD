@@ -56,6 +56,7 @@ namespace Remoting
                 typeof(Peer),
                 "http://localhost:" + port + "/RemotePeer.soap");
             Console.Write(peer.MusicLibrary[0]);
+
         }
     }
 }

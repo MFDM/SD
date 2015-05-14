@@ -7,11 +7,13 @@ namespace Remoting
 {
     public class Music
     {
-        string Title { get; set; }
-        string Artist { get; set; }
-        string Album { get; set; }
-        int Year { get; set; }
-        string Format { get; set; }
+        public string Title { get; set; }
+        public string Artist { get; set; }
+        public string Album { get; set; }
+        public int Year { get; set; }
+        public string Format { get; set; }
+
+        public Music() { }
 
         public Music(string title, string artist, string album, int year, string format)
         {
