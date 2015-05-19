@@ -44,7 +44,7 @@ namespace Remoting
         {
             ServerRegist(peerOtp.port);
             Hide();
-            var form = new PeerRegistration();
+            var form = new SearchMusic();
             form.Show();
         }
 
