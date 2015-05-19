@@ -46,6 +46,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Peer\IPeer.cs" />
+    <Compile Include="SearchMusic.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SearchMusic.Designer.cs">
+      <DependentUpon>SearchMusic.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\Music.cs" />
     <Compile Include="Peer\Peer.cs" />
     <Compile Include="Peer\PeerOptions.cs" />
@@ -72,6 +78,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SearchMusic.resx">
+      <DependentUpon>SearchMusic.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="App.config" />
     <None Include="App1.config" />
     <None Include="Properties\Settings.settings">

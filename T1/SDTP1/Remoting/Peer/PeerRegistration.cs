@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections;
-using System.Resources;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Http;
-using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace Remoting
