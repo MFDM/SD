@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
+using System.Resources;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Http;
+using System.Security.Policy;
 using System.Windows.Forms;
 
 namespace Remoting
@@ -11,10 +13,12 @@ namespace Remoting
     {
 
         public string UserSelectedFilePath { get; set; }
-
+        public PeerOptions peerOtp;
+        public Peer peer;
         public PeerRegistration()
         {
             InitializeComponent();
+            peerOtp = new PeerOptions();
         }
 
 
@@ -23,19 +27,22 @@ namespace Remoting
             OpenFileDialog ofd = new OpenFileDialog();
             string pictureFolder = Environment.CurrentDirectory;
             ofd.InitialDirectory = pictureFolder;
-            ofd.Filter = @"Config. Files|*.config;";
+            ofd.Filter = @"XML Files|*.xml";
             DialogResult dr = ofd.ShowDialog();
             if (dr == DialogResult.OK)
             {
                 UserSelectedFilePath = ofd.FileName;
                 xml.Text = UserSelectedFilePath;
+                XmlLoader xl = new XmlLoader(xml.Text);
+                peerOtp = xl.XmlLoad();
+                peer= new Peer(peerOtp);
             }
 
         }
 
         private void register_Click(object sender, EventArgs e)
         {
-            ServerRegist(Int32.Parse(PortValue.Text));
+            ServerRegist(peerOtp.port);
             Hide();
             var form = new PeerRegistration();
             form.Show();
@@ -48,15 +55,13 @@ namespace Remoting
             SoapClientFormatterSinkProvider clientProv = new SoapClientFormatterSinkProvider();
             IDictionary props = new Hashtable();
             props["port"] = port;
+
             HttpChannel ch = new HttpChannel(props, clientProv, serverProv);
             ChannelServices.RegisterChannel(ch, false);
             RemotingConfiguration.RegisterWellKnownServiceType(
-                 typeof(Peer), "RemotePeer.soap", WellKnownObjectMode.Singleton);
-            Peer peer = (Peer)Activator.GetObject(
-                typeof(Peer),
-                "http://localhost:" + port + "/RemotePeer.soap");
-            Console.Write(peer.MusicLibrary[0]);
-
+                typeof (Peer), "RemotePeer.soap", WellKnownObjectMode.Singleton);
+            
+            peer.ipeer = ((IPeer) Activator.GetObject(typeof (IPeer), "http://localhost/"+peer.peerOptions.name+":" + port + "/RemotePeer.soap"));
         }
     }
 }
