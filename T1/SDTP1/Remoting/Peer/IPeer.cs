@@ -9,6 +9,7 @@ namespace Remoting
    public interface IPeer
    {
        string Url { get; set; }
+       PeerInfo PeerInfo { get; set; }
        List<PeerFriend> GetPeerFriends();
        List<Music> GetPeerMusics();
        IPeer getInstance();

@@ -24,6 +24,7 @@
 	<friends>
 		<PeerFriend>
 			<Url>http://localhost:5555/Peer2/RemotePeer.soap</Url>
+			<Xml>C:\Users\Oksana\Documents\ENSINO\ISEL\6 Semestre\SD\SD\T1\SDTP1\Remoting\Peears\Peer2.xml</Xml>
 		</PeerFriend>
 	</friends>
 </PeerInfo>

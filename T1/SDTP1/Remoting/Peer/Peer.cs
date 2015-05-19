@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -64,9 +63,9 @@ namespace Remoting
         }
 
         // ReSharper disable once UnusedParameter.Local
-        public void AskFriendsForMusic(IPeer peer, string _title, CancellationTokenSource cts)
+        public void AskFriendsForMusic(IPeer p, string _title, CancellationTokenSource cts)
         {
-                foreach (PeerFriend f in PeerInfo.friends)
+                foreach (PeerFriend f in p.PeerInfo.friends)
                 {
                     if (!cts.IsCancellationRequested)
                     {
@@ -76,12 +75,16 @@ namespace Remoting
                             {
                                 Dictionary<Music, String> music = new Dictionary<Music, string>();
 
-                                IPeer ip =((IPeer) Activator.GetObject(typeof (IPeer), f.Url));
-                                
-                                if (ip.GetPeerMusics().Exists((m) => m.Title.Equals(_title)))
+                                PeerInfo testpi = new PeerInfo();
+                                XmlLoader xl = new XmlLoader(f.Xml);
+                                testpi = xl.XmlLoad();
+                                Peer peer = new Peer(testpi);
+                                peer.ipeer =((IPeer) Activator.GetObject(typeof (IPeer), f.Url));
+
+                                if (peer.GetPeerMusics().Exists((m) => m.Title.Equals(_title)))
                                 {
-                                 music.Add(ip.GetPeerMusics().Where(m => m.Title == _title).First(), f.Url);
-                                    cts.Cancel();
+                                    music.Add(peer.GetPeerMusics().Where(m => m.Title == _title).First(), f.Url);
+                                    //cts.Cancel();
                                     return music;
                                 }
                                     

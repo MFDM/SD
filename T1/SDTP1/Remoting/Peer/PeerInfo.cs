@@ -21,10 +21,11 @@ namespace Remoting
     public class PeerFriend
     {
         public String Url { get; set; }
-    
+        public String Xml { get; set; }
+
         public PeerFriend() { }
 
-        public PeerFriend(String url)
+        public PeerFriend(String url, String xml)
         {
             this.Url = url;
         }

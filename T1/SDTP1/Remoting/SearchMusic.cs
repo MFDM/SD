@@ -25,7 +25,10 @@ namespace Remoting
         private void Serach_Click(object sender, EventArgs e)
         {
             Dictionary<Music, string> res = PO.GetMusicByTitle(Title.Text);
-           
+            foreach (KeyValuePair<Music, String> m in res)
+            {
+                Refs.Text = m.Key.Title;
+            }
         }
 
         private void Album_Click(object sender, EventArgs e)

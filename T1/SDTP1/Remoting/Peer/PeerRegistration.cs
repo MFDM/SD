@@ -33,7 +33,7 @@ namespace Remoting
                 xml.Text = UserSelectedFilePath;
                 XmlLoader xl = new XmlLoader(xml.Text);
                 peerOtp = xl.XmlLoad();
-                peer= new Peer(peerOtp);
+                peer = new Peer(peerOtp);
             }
 
         }
@@ -57,9 +57,8 @@ namespace Remoting
             HttpChannel ch = new HttpChannel(props, clientProv, serverProv);
             ChannelServices.RegisterChannel(ch, false);
             RemotingConfiguration.RegisterWellKnownServiceType(
-                typeof (IPeer), "RemotePeer.soap", WellKnownObjectMode.Singleton);
+                typeof (Peer), "RemotePeer.soap", WellKnownObjectMode.Singleton);
             String url = "http://localhost/:" + port + "/" + peer.PeerInfo.name + "/RemotePeer.soap";
-            //peer = ((Peer)Activator.GetObject(typeof(Peer), url));
             peer.ipeer = ((IPeer) Activator.GetObject(typeof (IPeer), url));
         }
     }
