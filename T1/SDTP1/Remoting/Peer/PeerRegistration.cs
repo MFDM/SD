@@ -11,12 +11,12 @@ namespace Remoting
     {
 
         public string UserSelectedFilePath { get; set; }
-        public PeerOptions peerOtp;
+        public PeerInfo peerOtp;
         public Peer peer;
         public PeerRegistration()
         {
             InitializeComponent();
-            peerOtp = new PeerOptions();
+            peerOtp = new PeerInfo();
         }
 
 
@@ -42,7 +42,7 @@ namespace Remoting
         {
             ServerRegist(peerOtp.port);
             Hide();
-            var form = new SearchMusic(peerOtp);
+            var form = new SearchMusic(peer);
             form.Show();
         }
 
@@ -58,8 +58,8 @@ namespace Remoting
             ChannelServices.RegisterChannel(ch, false);
             RemotingConfiguration.RegisterWellKnownServiceType(
                 typeof (Peer), "RemotePeer.soap", WellKnownObjectMode.Singleton);
-            
-            peer.ipeer = ((IPeer) Activator.GetObject(typeof (IPeer), "http://localhost/"+peer.peerOptions.name+":" + port + "/RemotePeer.soap"));
+            String url = "http://localhost/" + peer.PeerInfo.name + ":" + port + "/RemotePeer.soap";
+            peer.ipeer = ((IPeer) Activator.GetObject(typeof (IPeer), url));
         }
     }
 }

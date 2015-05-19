@@ -59,21 +59,21 @@
             // 
             // Artist
             // 
-            this.Artist.Location = new System.Drawing.Point(461, 37);
+            this.Artist.Location = new System.Drawing.Point(461, 33);
             this.Artist.Name = "Artist";
             this.Artist.Size = new System.Drawing.Size(234, 20);
             this.Artist.TabIndex = 2;
             // 
             // Title
             // 
-            this.Title.Location = new System.Drawing.Point(315, 94);
+            this.Title.Location = new System.Drawing.Point(300, 94);
             this.Title.Name = "Title";
             this.Title.Size = new System.Drawing.Size(163, 20);
             this.Title.TabIndex = 3;
             // 
             // Year
             // 
-            this.Year.Location = new System.Drawing.Point(566, 92);
+            this.Year.Location = new System.Drawing.Point(544, 94);
             this.Year.Name = "Year";
             this.Year.Size = new System.Drawing.Size(129, 20);
             this.Year.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             this.LArtist.AutoSize = true;
             this.LArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LArtist.Location = new System.Drawing.Point(411, 37);
+            this.LArtist.Location = new System.Drawing.Point(411, 34);
             this.LArtist.Name = "LArtist";
             this.LArtist.Size = new System.Drawing.Size(44, 17);
             this.LArtist.TabIndex = 6;
@@ -113,7 +113,7 @@
             // 
             this.LTitle.AutoSize = true;
             this.LTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LTitle.Location = new System.Drawing.Point(270, 95);
+            this.LTitle.Location = new System.Drawing.Point(255, 95);
             this.LTitle.Name = "LTitle";
             this.LTitle.Size = new System.Drawing.Size(39, 17);
             this.LTitle.TabIndex = 8;
@@ -124,7 +124,7 @@
             // 
             this.LYear.AutoSize = true;
             this.LYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LYear.Location = new System.Drawing.Point(518, 95);
+            this.LYear.Location = new System.Drawing.Point(496, 95);
             this.LYear.Name = "LYear";
             this.LYear.Size = new System.Drawing.Size(42, 17);
             this.LYear.TabIndex = 9;

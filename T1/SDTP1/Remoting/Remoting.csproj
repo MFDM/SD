@@ -54,7 +54,7 @@
     </Compile>
     <Compile Include="Utils\Music.cs" />
     <Compile Include="Peer\Peer.cs" />
-    <Compile Include="Peer\PeerOptions.cs" />
+    <Compile Include="Peer\PeerInfo.cs" />
     <Compile Include="Peer\PeerRegistration.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -15,19 +15,19 @@ namespace Remoting
             if(path == null) 
                 throw new ArgumentNullException();
             _path = path;
-            _serializer = new XmlSerializer(typeof(PeerOptions));
+            _serializer = new XmlSerializer(typeof(PeerInfo));
         }
 
-        public PeerOptions XmlLoad()
+        public PeerInfo XmlLoad()
         {   
             StreamReader _streamR = new StreamReader(_path);
-            PeerOptions po = new PeerOptions();
-            po = (PeerOptions) _serializer.Deserialize(_streamR);
+            PeerInfo po = new PeerInfo();
+            po = (PeerInfo) _serializer.Deserialize(_streamR);
             _streamR.Close();
             return po;
         }
 
-        public void XmlSave(PeerOptions po)
+        public void XmlSave(PeerInfo po)
         {   
             StreamWriter _streamW = new StreamWriter(_path);
             StringWriter sww = new StringWriter();

@@ -7,14 +7,14 @@
 	<name>Peer1</name>
     <musics>
         <Music>
-            <Title>First</Title>
+            <Title>oioi</Title>
             <Artist>Artist1</Artist>
             <Album>Album1</Album>
             <Year>2000</Year>
             <Format>CD</Format>
         </Music>
         <Music>
-            <Title>Secons</Title>
+            <Title>olaola</Title>
             <Artist>Artist2</Artist>
             <Album>Album2</Album>
             <Year>2001</Year>
