@@ -28,154 +28,156 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.lAlbum = new System.Windows.Forms.Label();
-            this.Artis = new System.Windows.Forms.Label();
-            this.Format = new System.Windows.Forms.Label();
-            this.Title = new System.Windows.Forms.Label();
-            this.Year = new System.Windows.Forms.Label();
-            this.Serach = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.Refs = new System.Windows.Forms.Label();
+            this.Album = new System.Windows.Forms.TextBox();
+            this.Fromat = new System.Windows.Forms.TextBox();
+            this.Artist = new System.Windows.Forms.TextBox();
+            this.Title = new System.Windows.Forms.TextBox();
+            this.Year = new System.Windows.Forms.TextBox();
+            this.LAlbum = new System.Windows.Forms.Label();
+            this.LArtist = new System.Windows.Forms.Label();
+            this.LFormat = new System.Windows.Forms.Label();
+            this.LTitle = new System.Windows.Forms.Label();
+            this.LYear = new System.Windows.Forms.Label();
+            this.Search = new System.Windows.Forms.Button();
+            this.Refs = new System.Windows.Forms.RichTextBox();
+            this.LRefs = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // Album
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 34);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 20);
-            this.textBox1.TabIndex = 0;
+            this.Album.Location = new System.Drawing.Point(100, 34);
+            this.Album.Name = "Album";
+            this.Album.Size = new System.Drawing.Size(234, 20);
+            this.Album.TabIndex = 0;
             // 
-            // textBox2
+            // Fromat
             // 
-            this.textBox2.Location = new System.Drawing.Point(100, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(129, 20);
-            this.textBox2.TabIndex = 1;
+            this.Fromat.Location = new System.Drawing.Point(100, 94);
+            this.Fromat.Name = "Fromat";
+            this.Fromat.Size = new System.Drawing.Size(129, 20);
+            this.Fromat.TabIndex = 1;
             // 
-            // textBox3
+            // Artist
             // 
-            this.textBox3.Location = new System.Drawing.Point(461, 37);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(234, 20);
-            this.textBox3.TabIndex = 2;
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(315, 94);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(163, 20);
-            this.textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            this.textBox5.Location = new System.Drawing.Point(566, 92);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(129, 20);
-            this.textBox5.TabIndex = 4;
-            // 
-            // lAlbum
-            // 
-            this.lAlbum.AutoSize = true;
-            this.lAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lAlbum.Location = new System.Drawing.Point(43, 34);
-            this.lAlbum.Name = "lAlbum";
-            this.lAlbum.Size = new System.Drawing.Size(51, 17);
-            this.lAlbum.TabIndex = 5;
-            this.lAlbum.Text = "Album:";
-            // 
-            // Artis
-            // 
-            this.Artis.AutoSize = true;
-            this.Artis.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Artis.Location = new System.Drawing.Point(416, 43);
-            this.Artis.Name = "Artis";
-            this.Artis.Size = new System.Drawing.Size(44, 17);
-            this.Artis.TabIndex = 6;
-            this.Artis.Text = "Artist:";
-            // 
-            // Format
-            // 
-            this.Format.AutoSize = true;
-            this.Format.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Format.Location = new System.Drawing.Point(38, 95);
-            this.Format.Name = "Format";
-            this.Format.Size = new System.Drawing.Size(56, 17);
-            this.Format.TabIndex = 7;
-            this.Format.Text = "Format:";
+            this.Artist.Location = new System.Drawing.Point(461, 37);
+            this.Artist.Name = "Artist";
+            this.Artist.Size = new System.Drawing.Size(234, 20);
+            this.Artist.TabIndex = 2;
             // 
             // Title
             // 
-            this.Title.AutoSize = true;
-            this.Title.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Title.Location = new System.Drawing.Point(270, 95);
+            this.Title.Location = new System.Drawing.Point(315, 94);
             this.Title.Name = "Title";
-            this.Title.Size = new System.Drawing.Size(39, 17);
-            this.Title.TabIndex = 8;
-            this.Title.Text = "Title:";
-            this.Title.Click += new System.EventHandler(this.Title_Click);
+            this.Title.Size = new System.Drawing.Size(163, 20);
+            this.Title.TabIndex = 3;
             // 
             // Year
             // 
-            this.Year.AutoSize = true;
-            this.Year.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Year.Location = new System.Drawing.Point(518, 95);
+            this.Year.Location = new System.Drawing.Point(566, 92);
             this.Year.Name = "Year";
-            this.Year.Size = new System.Drawing.Size(42, 17);
-            this.Year.TabIndex = 9;
-            this.Year.Text = "Year:";
-            this.Year.Click += new System.EventHandler(this.label3_Click);
+            this.Year.Size = new System.Drawing.Size(129, 20);
+            this.Year.TabIndex = 4;
             // 
-            // Serach
+            // LAlbum
             // 
-            this.Serach.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Serach.Location = new System.Drawing.Point(194, 160);
-            this.Serach.Name = "Serach";
-            this.Serach.Size = new System.Drawing.Size(284, 38);
-            this.Serach.TabIndex = 10;
-            this.Serach.Text = "Search!";
-            this.Serach.UseVisualStyleBackColor = true;
+            this.LAlbum.AutoSize = true;
+            this.LAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LAlbum.Location = new System.Drawing.Point(43, 34);
+            this.LAlbum.Name = "LAlbum";
+            this.LAlbum.Size = new System.Drawing.Size(51, 17);
+            this.LAlbum.TabIndex = 5;
+            this.LAlbum.Text = "Album:";
+            this.LAlbum.Click += new System.EventHandler(this.Album_Click);
             // 
-            // richTextBox1
+            // LArtist
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(46, 247);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(649, 118);
-            this.richTextBox1.TabIndex = 11;
-            this.richTextBox1.Text = "";
+            this.LArtist.AutoSize = true;
+            this.LArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LArtist.Location = new System.Drawing.Point(411, 37);
+            this.LArtist.Name = "LArtist";
+            this.LArtist.Size = new System.Drawing.Size(44, 17);
+            this.LArtist.TabIndex = 6;
+            this.LArtist.Text = "Artist:";
+            // 
+            // LFormat
+            // 
+            this.LFormat.AutoSize = true;
+            this.LFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LFormat.Location = new System.Drawing.Point(38, 95);
+            this.LFormat.Name = "LFormat";
+            this.LFormat.Size = new System.Drawing.Size(56, 17);
+            this.LFormat.TabIndex = 7;
+            this.LFormat.Text = "Format:";
+            // 
+            // LTitle
+            // 
+            this.LTitle.AutoSize = true;
+            this.LTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LTitle.Location = new System.Drawing.Point(270, 95);
+            this.LTitle.Name = "LTitle";
+            this.LTitle.Size = new System.Drawing.Size(39, 17);
+            this.LTitle.TabIndex = 8;
+            this.LTitle.Text = "Title:";
+            this.LTitle.Click += new System.EventHandler(this.Title_Click);
+            // 
+            // LYear
+            // 
+            this.LYear.AutoSize = true;
+            this.LYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LYear.Location = new System.Drawing.Point(518, 95);
+            this.LYear.Name = "LYear";
+            this.LYear.Size = new System.Drawing.Size(42, 17);
+            this.LYear.TabIndex = 9;
+            this.LYear.Text = "Year:";
+            this.LYear.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // Search
+            // 
+            this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Search.Location = new System.Drawing.Point(194, 160);
+            this.Search.Name = "Search";
+            this.Search.Size = new System.Drawing.Size(284, 38);
+            this.Search.TabIndex = 10;
+            this.Search.Text = "Search!";
+            this.Search.UseVisualStyleBackColor = true;
+            this.Search.Click += new System.EventHandler(this.Serach_Click);
             // 
             // Refs
             // 
-            this.Refs.AutoSize = true;
-            this.Refs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.Refs.Location = new System.Drawing.Point(43, 214);
+            this.Refs.Location = new System.Drawing.Point(46, 247);
             this.Refs.Name = "Refs";
-            this.Refs.Size = new System.Drawing.Size(129, 17);
-            this.Refs.TabIndex = 12;
-            this.Refs.Text = "Found References:";
+            this.Refs.Size = new System.Drawing.Size(649, 118);
+            this.Refs.TabIndex = 11;
+            this.Refs.Text = "";
+            // 
+            // LRefs
+            // 
+            this.LRefs.AutoSize = true;
+            this.LRefs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.LRefs.Location = new System.Drawing.Point(43, 214);
+            this.LRefs.Name = "LRefs";
+            this.LRefs.Size = new System.Drawing.Size(129, 17);
+            this.LRefs.TabIndex = 12;
+            this.LRefs.Text = "Found References:";
             // 
             // SearchMusic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 401);
+            this.Controls.Add(this.LRefs);
             this.Controls.Add(this.Refs);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.Serach);
+            this.Controls.Add(this.Search);
+            this.Controls.Add(this.LYear);
+            this.Controls.Add(this.LTitle);
+            this.Controls.Add(this.LFormat);
+            this.Controls.Add(this.LArtist);
+            this.Controls.Add(this.LAlbum);
             this.Controls.Add(this.Year);
             this.Controls.Add(this.Title);
-            this.Controls.Add(this.Format);
-            this.Controls.Add(this.Artis);
-            this.Controls.Add(this.lAlbum);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.Artist);
+            this.Controls.Add(this.Fromat);
+            this.Controls.Add(this.Album);
             this.Name = "SearchMusic";
             this.Text = "SearchMusic";
             this.ResumeLayout(false);
@@ -185,18 +187,18 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label lAlbum;
-        private System.Windows.Forms.Label Artis;
-        private System.Windows.Forms.Label Format;
-        private System.Windows.Forms.Label Title;
-        private System.Windows.Forms.Label Year;
-        private System.Windows.Forms.Button Serach;
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.Label Refs;
+        private System.Windows.Forms.TextBox Album;
+        private System.Windows.Forms.TextBox Fromat;
+        private System.Windows.Forms.TextBox Artist;
+        private System.Windows.Forms.TextBox Title;
+        private System.Windows.Forms.TextBox Year;
+        private System.Windows.Forms.Label LAlbum;
+        private System.Windows.Forms.Label LArtist;
+        private System.Windows.Forms.Label LFormat;
+        private System.Windows.Forms.Label LTitle;
+        private System.Windows.Forms.Label LYear;
+        private System.Windows.Forms.Button Search;
+        private System.Windows.Forms.RichTextBox Refs;
+        private System.Windows.Forms.Label LRefs;
     }
 }

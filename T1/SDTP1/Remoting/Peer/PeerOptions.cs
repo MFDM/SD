@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Xml.Serialization;
 
 namespace Remoting
 {
@@ -17,6 +15,11 @@ namespace Remoting
 
         public PeerOptions()
         {
+        }
+
+        public IEnumerable<Music> GetMusicByTitle(String title)
+        {
+            return musics.Where(m => m.Title == title);
         }
     }
 }
