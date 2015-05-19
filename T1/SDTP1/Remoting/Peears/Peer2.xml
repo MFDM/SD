@@ -4,7 +4,7 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <port>5555</port>
     <portname>nameport</portname>
-	<name>Peer1</name>
+	<name>Peer2</name>
     <musics>
         <Music>
             <Title>oioi</Title>
@@ -23,7 +23,7 @@
     </musics>
 	<friends>
 		<PeerFriend>
-			<Url>http://localhost/Peer2:5555/RemotePeer.soap</Url>
+			<Url>http://localhost:8888/Peer1/RemotePeer.soap</Url>
 		</PeerFriend>
 	</friends>
 </PeerInfo>

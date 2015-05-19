@@ -23,7 +23,7 @@
     </musics>
 	<friends>
 		<PeerFriend>
-			<Url>http://localhost/Peer2:5555/RemotePeer.soap</Url>
+			<Url>http://localhost:5555/Peer2/RemotePeer.soap</Url>
 		</PeerFriend>
 	</friends>
 </PeerInfo>

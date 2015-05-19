@@ -18,7 +18,7 @@ namespace Remoting
             this.PeerInfo = po;
         }
 
-        public string Url { get; set; }
+        public string Url { get; set;}
 
         public List<PeerFriend> GetPeerFriends()
         {

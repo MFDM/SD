@@ -7,11 +7,11 @@ using System.Text;
 namespace Remoting
 {
    public interface IPeer
-    {
-        string Url { get; set; }
-        List<PeerFriend> GetPeerFriends();
-        List<Music> GetPeerMusics();
-        IPeer getInstance();
+   {
+       string Url { get; set; }
+       List<PeerFriend> GetPeerFriends();
+       List<Music> GetPeerMusics();
+       IPeer getInstance();
 
     }
 }
