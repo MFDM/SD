@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-16"?>
+<PeerOptions
+    xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <port>8888</port>
+    <portname>nameport</portname>
+	<name>Port1</name>
+    <musics>
+        <Music>
+            <Title>First</Title>
+            <Artist>Artist1</Artist>
+            <Album>Album1</Album>
+            <Year>2000</Year>
+            <Format>CD</Format>
+        </Music>
+        <Music>
+            <Title>Secons</Title>
+            <Artist>Artist2</Artist>
+            <Album>Album2</Album>
+            <Year>2001</Year>
+            <Format>MP3</Format>
+        </Music>
+    </musics>
+</PeerOptions>
