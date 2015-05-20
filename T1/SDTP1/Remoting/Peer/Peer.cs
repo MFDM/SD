@@ -8,51 +8,47 @@ namespace Remoting
 {
     public class Peer : MarshalByRefObject, IPeer
     {
-        public PeerInfo PeerInfo { get; set; }
-        public IPeer ipeer;
-        private List<Task<Dictionary<Music, String>>> tasks = new List<Task<Dictionary<Music, String>>>();
 
-        public Peer(PeerInfo po)
+        public List<Music> musics { get; set; }
+        public List<String> peersLinks { get; set; }
+        public string Url { get; set; }
+
+        private List<Task<Music>> tasks = new List<Task<Music>>();
+
+        public Peer()
         {
-            this.PeerInfo = po;
+            musics = new List<Music>();
+            peersLinks = new List<String>();
         }
 
-        public string Url { get; set;}
-
-        public List<PeerFriend> GetPeerFriends()
+        public void AddMusic(Music m)
         {
-            return PeerInfo.friends;
+            musics.Add(m);
         }
 
-        public List<Music> GetPeerMusics()
+        public void AddPeerUrl(String m)
         {
-            return PeerInfo.musics;
-        }
-
-        public IPeer getInstance()
-        {
-            return this;
+            peersLinks.Add(m);
         }
 
 
-        public Dictionary<Music, String> GetMusicByTitle(String title)
+        public Music GetMusicByTitle(String title)
         {
-            Dictionary<Music, String> musicsFind = new Dictionary<Music, string>();
             CancellationTokenSource cts = new CancellationTokenSource();
 
-            if (PeerInfo.musics.Exists((m) => m.Title.Equals(title)))
+            if (musics.Exists((m) => m.Title.Equals(title)))
             {
-                musicsFind.Add(PeerInfo.musics.Where(m => m.Title == title).First(), Url);
-                return musicsFind;
+                Music x = musics.Where(m => m.Title == title).First();
+                return x;
             }
 
-          
-              AskFriendsForMusic(this, title, cts);   
-           
+
+            AskFriendsForMusic(this, title, cts);
+
 
             Task.WaitAll(tasks.ToArray(), cts.Token);
 
-            foreach (Task<Dictionary<Music,String>> t in tasks)
+            foreach (Task<Music> t in tasks)
             {
                 if (t.Result != null)
                 {
@@ -63,49 +59,39 @@ namespace Remoting
         }
 
         // ReSharper disable once UnusedParameter.Local
-        public void AskFriendsForMusic(IPeer p, string _title, CancellationTokenSource cts)
+        public void AskFriendsForMusic(IPeer p, string title, CancellationTokenSource cts)
         {
-                foreach (PeerFriend f in p.PeerInfo.friends)
+            foreach (String url in p.peersLinks)
+            {
+                if (!cts.IsCancellationRequested)
                 {
-                    if (!cts.IsCancellationRequested)
+                    Task<Music> t1 = Task.Factory.StartNew(() =>
                     {
-                        Task<Dictionary<Music, String>> t1 = Task.Factory.StartNew(() =>
+                        try
                         {
-                            try
-                            {
-                                Dictionary<Music, String> music = new Dictionary<Music, string>();
+                            IPeer peer = ((IPeer)Activator.GetObject(typeof(IPeer), url));
+                            Music music = peer.GetMusicByTitle(title);
 
-                                PeerInfo testpi = new PeerInfo();
-                                XmlLoader xl = new XmlLoader(f.Xml);
-                                testpi = xl.XmlLoad();
-                                Peer peer = new Peer(testpi);
-                                peer.ipeer =((IPeer) Activator.GetObject(typeof (IPeer), f.Url));
+                            if (music != null) return music;
 
-                                if (peer.GetPeerMusics().Exists((m) => m.Title.Equals(_title)))
-                                {
-                                    music.Add(peer.GetPeerMusics().Where(m => m.Title == _title).First(), f.Url);
-                                    //cts.Cancel();
-                                    return music;
-                                }
-                                    
-                                
-                                 Task.Factory.StartNew(() =>
-                                {
-                                    AskFriendsForMusic(this, _title, cts);   
-                                });
-                                return null;
+                            Task.Factory.StartNew(() =>
+                           {
+                               AskFriendsForMusic(peer, title, cts);
+                           });
+                            return null;
 
-                            }catch (OperationCanceledException ce)
-                            {
-                                return null;
-                            }
-                            
-                        }, cts.Token);
+                        }
+                        catch (OperationCanceledException ce)
+                        {
+                            return null;
+                        }
 
-                        tasks.Add(t1);
-                    }
+                    }, cts.Token);
+
+                    tasks.Add(t1);
                 }
             }
         }
     }
+}
 

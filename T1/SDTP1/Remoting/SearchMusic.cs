@@ -6,13 +6,14 @@ namespace Remoting
 {
     public partial class SearchMusic : Form
     {
+
+        private Peer PO { get; set; }
+
         public SearchMusic(Peer po)
         {
             PO = po;
             InitializeComponent();
         }
-
-        private Peer PO { get; set; }
 
         private void label3_Click(object sender, EventArgs e)
         {
@@ -24,11 +25,9 @@ namespace Remoting
 
         private void Serach_Click(object sender, EventArgs e)
         {
-            Dictionary<Music, string> res = PO.GetMusicByTitle(Title.Text);
-            foreach (KeyValuePair<Music, String> m in res)
-            {
-                Refs.Text = m.Key.Title;
-            }
+            Music m = PO.GetMusicByTitle(Title.Text);
+            Refs.Text = m.Title;
+            
         }
 
         private void Album_Click(object sender, EventArgs e)

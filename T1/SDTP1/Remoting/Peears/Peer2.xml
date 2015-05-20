@@ -21,9 +21,7 @@
             <Format>MP3</Format>
         </Music>
     </musics>
-	<friends>
-		<PeerFriend>
-			<Url>http://localhost:8888/Peer1/RemotePeer.soap</Url>
-		</PeerFriend>
-	</friends>
+    <friends>
+	<Url>http://localhost:8888/RemotePeer.soap</Url>
+    </friends>
 </PeerInfo>

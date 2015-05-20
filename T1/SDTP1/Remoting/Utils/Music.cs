@@ -5,6 +5,7 @@ using System.Text;
 
 namespace Remoting
 {
+    [Serializable]
     public class Music
     {
         public string Title { get; set; }

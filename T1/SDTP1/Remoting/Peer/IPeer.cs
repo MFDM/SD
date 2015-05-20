@@ -9,10 +9,11 @@ namespace Remoting
    public interface IPeer
    {
        string Url { get; set; }
-       PeerInfo PeerInfo { get; set; }
-       List<PeerFriend> GetPeerFriends();
-       List<Music> GetPeerMusics();
-       IPeer getInstance();
-
+       //PeerInfo PeerInfo { get; set; }
+       List<Music> musics { get; set; }
+       List<String> peersLinks { get; set; }
+       void AddMusic(Music m);
+       void AddPeerUrl(String url);
+       Music GetMusicByTitle(String title);
     }
 }
