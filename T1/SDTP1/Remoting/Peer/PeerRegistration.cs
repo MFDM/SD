@@ -10,39 +10,44 @@ namespace Remoting
     public partial class PeerRegistration : Form
     {
 
-        public string UserSelectedFilePath { get; set; }
-        public PeerInfo peerOtp;
-        public Peer peer;
+        private PeerInfo _peerInfo;
+        private Peer _peer;
+        private OpenFileDialog _ofd;
+        private const string NoPathPresent = "Please insert or browse the xml file path.";
+
         public PeerRegistration()
         {
             InitializeComponent();
-            peerOtp = new PeerInfo();
+            _peerInfo = new PeerInfo();
         }
 
 
         private void browse_Click(object sender, EventArgs e)
         {
-            OpenFileDialog ofd = new OpenFileDialog();
-            string pictureFolder = Environment.CurrentDirectory;
-            ofd.InitialDirectory = pictureFolder;
-            ofd.Filter = @"XML Files|*.xml";
-            DialogResult dr = ofd.ShowDialog();
+            _ofd = new OpenFileDialog();
+            _ofd.InitialDirectory = Environment.CurrentDirectory;
+            _ofd.Filter = @"XML Files|*.xml";
+            DialogResult dr = _ofd.ShowDialog();
             if (dr == DialogResult.OK)
-            {
-                UserSelectedFilePath = ofd.FileName;
-                xml.Text = UserSelectedFilePath;
-                XmlLoader xl = new XmlLoader(xml.Text);
-                peerOtp = xl.XmlLoad();
-            }
+                xml.Text = _ofd.FileName;
 
         }
 
         private void register_Click(object sender, EventArgs e)
         {
-            ServerRegist(peerOtp.port);
-            Hide();
-            var form = new SearchMusic(peer);
-            form.Show();
+            if (xml.Text != "")
+            {
+                XmlLoader xl = new XmlLoader(xml.Text);
+                _peerInfo = xl.XmlLoad();
+                ServerRegist(_peerInfo.port);
+                Hide();
+                var form = new SearchMusic(_peer);
+                form.Show();
+
+            }
+            else
+                NoPath.Text = NoPathPresent;
+
         }
 
         private void ServerRegist(int port)
@@ -58,13 +63,13 @@ namespace Remoting
             RemotingConfiguration.RegisterWellKnownServiceType(
                 typeof (Peer), "RemotePeer.soap", WellKnownObjectMode.Singleton);
             
-            String url = "http://localhost:" + peerOtp.port +"/RemotePeer.soap";
+            String url = "http://localhost:" + _peerInfo.port +"/RemotePeer.soap";
             Console.WriteLine(url);
-            peer = ((Peer) Activator.GetObject(typeof (Peer), url));
-            foreach(Music m in peerOtp.musics)
-                peer.AddMusic(m);
-            foreach (String p in peerOtp.friends)
-                peer.AddPeerUrl(p);
+            _peer = ((Peer) Activator.GetObject(typeof (Peer), url));
+            foreach(Music m in _peerInfo.musics)
+                _peer.AddMusic(m);
+            foreach (String p in _peerInfo.friends)
+                _peer.AddPeerUrl(p);
         }
     }
 }

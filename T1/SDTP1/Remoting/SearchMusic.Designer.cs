@@ -1,4 +1,7 @@
-﻿namespace Remoting
+﻿using System.Net.Mime;
+using System.Windows.Forms;
+
+namespace Remoting
 {
     partial class SearchMusic
     {
@@ -18,6 +21,7 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
+            Application.Exit();
         }
 
         #region Windows Form Designer generated code
@@ -41,6 +45,7 @@
             this.Search = new System.Windows.Forms.Button();
             this.Refs = new System.Windows.Forms.RichTextBox();
             this.LRefs = new System.Windows.Forms.Label();
+            this.NoSearchText = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // Album
@@ -84,10 +89,9 @@
             this.LAlbum.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LAlbum.Location = new System.Drawing.Point(43, 34);
             this.LAlbum.Name = "LAlbum";
-            this.LAlbum.Size = new System.Drawing.Size(51, 17);
+            this.LAlbum.Size = new System.Drawing.Size(98, 31);
             this.LAlbum.TabIndex = 5;
             this.LAlbum.Text = "Album:";
-            this.LAlbum.Click += new System.EventHandler(this.Album_Click);
             // 
             // LArtist
             // 
@@ -95,7 +99,7 @@
             this.LArtist.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LArtist.Location = new System.Drawing.Point(411, 34);
             this.LArtist.Name = "LArtist";
-            this.LArtist.Size = new System.Drawing.Size(44, 17);
+            this.LArtist.Size = new System.Drawing.Size(85, 31);
             this.LArtist.TabIndex = 6;
             this.LArtist.Text = "Artist:";
             // 
@@ -105,7 +109,7 @@
             this.LFormat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LFormat.Location = new System.Drawing.Point(38, 95);
             this.LFormat.Name = "LFormat";
-            this.LFormat.Size = new System.Drawing.Size(56, 17);
+            this.LFormat.Size = new System.Drawing.Size(108, 31);
             this.LFormat.TabIndex = 7;
             this.LFormat.Text = "Format:";
             // 
@@ -115,10 +119,9 @@
             this.LTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LTitle.Location = new System.Drawing.Point(255, 95);
             this.LTitle.Name = "LTitle";
-            this.LTitle.Size = new System.Drawing.Size(39, 17);
+            this.LTitle.Size = new System.Drawing.Size(74, 31);
             this.LTitle.TabIndex = 8;
             this.LTitle.Text = "Title:";
-            this.LTitle.Click += new System.EventHandler(this.Title_Click);
             // 
             // LYear
             // 
@@ -126,21 +129,20 @@
             this.LYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.LYear.Location = new System.Drawing.Point(496, 95);
             this.LYear.Name = "LYear";
-            this.LYear.Size = new System.Drawing.Size(42, 17);
+            this.LYear.Size = new System.Drawing.Size(79, 31);
             this.LYear.TabIndex = 9;
             this.LYear.Text = "Year:";
-            this.LYear.Click += new System.EventHandler(this.label3_Click);
             // 
             // Search
             // 
             this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.Location = new System.Drawing.Point(194, 160);
+            this.Search.Location = new System.Drawing.Point(194, 173);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(284, 38);
             this.Search.TabIndex = 10;
             this.Search.Text = "Search!";
             this.Search.UseVisualStyleBackColor = true;
-            this.Search.Click += new System.EventHandler(this.Serach_Click);
+            this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
             // Refs
             // 
@@ -156,15 +158,24 @@
             this.LRefs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.LRefs.Location = new System.Drawing.Point(43, 214);
             this.LRefs.Name = "LRefs";
-            this.LRefs.Size = new System.Drawing.Size(129, 17);
+            this.LRefs.Size = new System.Drawing.Size(246, 31);
             this.LRefs.TabIndex = 12;
             this.LRefs.Text = "Found References:";
+            // 
+            // NoSearchText
+            // 
+            this.NoSearchText.AutoSize = true;
+            this.NoSearchText.Location = new System.Drawing.Point(220, 142);
+            this.NoSearchText.Name = "NoSearchText";
+            this.NoSearchText.Size = new System.Drawing.Size(0, 13);
+            this.NoSearchText.TabIndex = 13;
             // 
             // SearchMusic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(741, 401);
+            this.Controls.Add(this.NoSearchText);
             this.Controls.Add(this.LRefs);
             this.Controls.Add(this.Refs);
             this.Controls.Add(this.Search);
@@ -200,5 +211,6 @@
         private System.Windows.Forms.Button Search;
         private System.Windows.Forms.RichTextBox Refs;
         private System.Windows.Forms.Label LRefs;
+        private Label NoSearchText;
     }
 }

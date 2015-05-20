@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -69,17 +70,21 @@ namespace Remoting
                     {
                         try
                         {
-                            IPeer peer = ((IPeer)Activator.GetObject(typeof(IPeer), url));
+                            IPeer peer = ((IPeer) Activator.GetObject(typeof (IPeer), url));
                             Music music = peer.GetMusicByTitle(title);
 
                             if (music != null) return music;
 
                             Task.Factory.StartNew(() =>
-                           {
-                               AskFriendsForMusic(peer, title, cts);
-                           });
+                            {
+                                AskFriendsForMusic(peer, title, cts);
+                            });
                             return null;
 
+                        }
+                        catch (WebException we)
+                        {
+                            return null;
                         }
                         catch (OperationCanceledException ce)
                         {
@@ -91,6 +96,16 @@ namespace Remoting
                     tasks.Add(t1);
                 }
             }
+        }
+
+        public Music GetMusicByArtist(string text)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Music GetMusicByAlbum(string text)
+        {
+            throw new NotImplementedException();
         }
     }
 }
