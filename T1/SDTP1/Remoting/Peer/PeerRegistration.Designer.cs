@@ -32,6 +32,7 @@
             this.xml = new System.Windows.Forms.TextBox();
             this.browse = new System.Windows.Forms.Button();
             this.register = new System.Windows.Forms.Button();
+            this.NoPath = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // XMLFile
@@ -65,19 +66,29 @@
             // register
             // 
             this.register.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register.Location = new System.Drawing.Point(142, 87);
+            this.register.Location = new System.Drawing.Point(146, 87);
             this.register.Name = "register";
-            this.register.Size = new System.Drawing.Size(171, 32);
+            this.register.Size = new System.Drawing.Size(169, 40);
             this.register.TabIndex = 5;
             this.register.Text = "Register";
             this.register.UseVisualStyleBackColor = true;
             this.register.Click += new System.EventHandler(this.register_Click);
             // 
+            // NoPath
+            // 
+            this.NoPath.AutoSize = true;
+            this.NoPath.Location = new System.Drawing.Point(129, 76);
+            this.NoPath.Name = "NoPath";
+            this.NoPath.Size = new System.Drawing.Size(0, 13);
+            this.NoPath.TabIndex = 6;
+            // 
             // PeerRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(459, 158);
+            this.Controls.Add(this.NoPath);
             this.Controls.Add(this.register);
             this.Controls.Add(this.browse);
             this.Controls.Add(this.xml);
@@ -96,6 +107,7 @@
         private System.Windows.Forms.TextBox xml;
         private System.Windows.Forms.Button browse;
         private System.Windows.Forms.Button register;
+        private System.Windows.Forms.Label NoPath;
     }
 }
 
