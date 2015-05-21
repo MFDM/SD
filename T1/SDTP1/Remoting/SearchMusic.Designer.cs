@@ -48,6 +48,10 @@ namespace Remoting
             this.MTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DeepBox = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.addMusicButton = new System.Windows.Forms.Button();
+            this.MFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MusicInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,11 +109,11 @@ namespace Remoting
             // Search
             // 
             this.Search.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Search.Location = new System.Drawing.Point(420, 97);
+            this.Search.Location = new System.Drawing.Point(420, 117);
             this.Search.Name = "Search";
             this.Search.Size = new System.Drawing.Size(164, 63);
             this.Search.TabIndex = 10;
-            this.Search.Text = "Search!";
+            this.Search.Text = "Search";
             this.Search.UseVisualStyleBackColor = true;
             this.Search.Click += new System.EventHandler(this.Search_Click);
             // 
@@ -117,7 +121,7 @@ namespace Remoting
             // 
             this.LRefs.AutoSize = true;
             this.LRefs.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.LRefs.Location = new System.Drawing.Point(43, 228);
+            this.LRefs.Location = new System.Drawing.Point(38, 212);
             this.LRefs.Name = "LRefs";
             this.LRefs.Size = new System.Drawing.Size(129, 17);
             this.LRefs.TabIndex = 12;
@@ -126,7 +130,8 @@ namespace Remoting
             // NoSearchText
             // 
             this.NoSearchText.AutoSize = true;
-            this.NoSearchText.Location = new System.Drawing.Point(220, 142);
+            this.NoSearchText.ForeColor = System.Drawing.Color.DarkRed;
+            this.NoSearchText.Location = new System.Drawing.Point(417, 203);
             this.NoSearchText.Name = "NoSearchText";
             this.NoSearchText.Size = new System.Drawing.Size(0, 13);
             this.NoSearchText.TabIndex = 13;
@@ -153,11 +158,12 @@ namespace Remoting
             this.MArtist,
             this.MTitle,
             this.MYear,
-            this.MAlbum});
+            this.MAlbum,
+            this.MFormat});
             this.MusicInfo.GridColor = System.Drawing.Color.White;
-            this.MusicInfo.Location = new System.Drawing.Point(41, 262);
+            this.MusicInfo.Location = new System.Drawing.Point(41, 251);
             this.MusicInfo.Name = "MusicInfo";
-            this.MusicInfo.Size = new System.Drawing.Size(543, 100);
+            this.MusicInfo.Size = new System.Drawing.Size(479, 100);
             this.MusicInfo.TabIndex = 15;
             // 
             // Peer
@@ -185,11 +191,45 @@ namespace Remoting
             this.MAlbum.HeaderText = "Album";
             this.MAlbum.Name = "MAlbum";
             // 
+            // DeepBox
+            // 
+            this.DeepBox.Location = new System.Drawing.Point(459, 80);
+            this.DeepBox.Name = "DeepBox";
+            this.DeepBox.Size = new System.Drawing.Size(53, 20);
+            this.DeepBox.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(417, 83);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "Deep:";
+            // 
+            // addMusicButton
+            // 
+            this.addMusicButton.Location = new System.Drawing.Point(544, 275);
+            this.addMusicButton.Name = "addMusicButton";
+            this.addMusicButton.Size = new System.Drawing.Size(66, 37);
+            this.addMusicButton.TabIndex = 18;
+            this.addMusicButton.Text = "Add";
+            this.addMusicButton.UseVisualStyleBackColor = true;
+            this.addMusicButton.Click += new System.EventHandler(this.addMusicButton_Click);
+            // 
+            // MFormat
+            // 
+            this.MFormat.HeaderText = "Format";
+            this.MFormat.Name = "MFormat";
+            // 
             // SearchMusic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(651, 384);
+            this.Controls.Add(this.addMusicButton);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.DeepBox);
             this.Controls.Add(this.MusicInfo);
             this.Controls.Add(this.peerinfo);
             this.Controls.Add(this.NoSearchText);
@@ -227,5 +267,9 @@ namespace Remoting
         private DataGridViewTextBoxColumn MTitle;
         private DataGridViewTextBoxColumn MYear;
         private DataGridViewTextBoxColumn MAlbum;
+        private TextBox DeepBox;
+        private Label label1;
+        private Button addMusicButton;
+        private DataGridViewTextBoxColumn MFormat;
     }
 }

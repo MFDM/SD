@@ -12,6 +12,7 @@
             <Album>Album1</Album>
             <Year>2000</Year>
             <Format>CD</Format>
+			<Owner>http://localhost:8080/RemotePeer.soap</Owner>
         </Music>
         <Music>
             <Title>Poetas de karaoke </Title>
@@ -19,6 +20,7 @@
             <Album>Album2</Album>
             <Year>2001</Year>
             <Format>MP3</Format>
+			<Owner>http://localhost:8080/RemotePeer.soap</Owner>
         </Music>
     </musics>
     <friends>

@@ -14,6 +14,7 @@ namespace Remoting
         public List<Music> musics { get; set; }
         public List<String> peersLinks { get; set; }
         public string Url { get; set; }
+
       
         public Peer()
         {
@@ -28,7 +29,8 @@ namespace Remoting
 
         public void AddPeerUrl(String m)
         {
-            peersLinks.Add(m);
+            if(!peersLinks.Contains(m))
+                peersLinks.Add(m);
         }
 
         public string getPeerFriendUrl(int idx)
@@ -43,7 +45,6 @@ namespace Remoting
 
         public Music GetMusicByTitle(string title)
         {
-
             Music music = null;
             if (musics.Exists((m) => m.Title.Equals(title)))
             {
@@ -53,10 +54,21 @@ namespace Remoting
             return music;
         }
 
+        public Music getMusicByArtist(string artist)
+        {
+            Music music = null;
+            if (musics.Exists((m) => m.Artist.Equals(artist)))
+            {
+                music = musics.Where((m) => m.Artist.Equals(artist)).First();
+            }
+
+            return music;
+        }
+
         private List<Task<Music>> tasks;
         private List<String> peersSerched;
 
-        public Music SearchMusicByTitle(String title)
+        public Music SearchMusicByTitle(string title, int deep)
         {
             tasks = new List<Task<Music>>();
             peersSerched = new List<String>();
@@ -69,7 +81,7 @@ namespace Remoting
             }
             peersSerched.Add(this.Url);
 
-            AskFriendsForMusic(this, title, cts);
+            AskFriendsForMusic(this,"title",title, cts, deep);
             
             Task.WaitAll(tasks.ToArray());
 
@@ -84,8 +96,11 @@ namespace Remoting
         }
 
         // ReSharper disable once UnusedParameter.Local
-        public void AskFriendsForMusic(IPeer p, string title, CancellationTokenSource cts)
-        {   
+        public void AskFriendsForMusic(IPeer p,string mode, string search, CancellationTokenSource cts,int deep)
+        {
+            if (deep == 0)
+                return;
+            
             for( int i =0; i < p.getNumPeerFriends(); ++i)
             {
                 String url = p.getPeerFriendUrl(i);
@@ -102,7 +117,11 @@ namespace Remoting
                                 if (!cts.IsCancellationRequested)
                                 {
                                     IPeer peer = ((IPeer) Activator.GetObject(typeof (IPeer), url));
-                                    Music music = peer.GetMusicByTitle(title);
+                                    Music music = null;
+                                    if(mode.Equals("title"))
+                                      music = peer.GetMusicByTitle(search);
+                                    else if(mode.Equals("artist"))
+                                      music = peer.getMusicByArtist(search);
 
                                     if (music != null)
                                     {
@@ -111,7 +130,7 @@ namespace Remoting
                                     }
 
                                     if (!cts.IsCancellationRequested)
-                                        AskFriendsForMusic(peer, title, cts);
+                                        AskFriendsForMusic(peer, mode,search, cts,--deep);
                                 }
                                 return null;
                             }
@@ -125,16 +144,37 @@ namespace Remoting
                             }
 
                         }, cts.Token);
-
                         tasks.Add(t1);
                     }
                 }
             }
         }
 
-        public Music GetMusicByArtist(string text)
+        public Music SearchMusicByArtist(string artist, int deep)
         {
-            throw new NotImplementedException();
+            tasks = new List<Task<Music>>();
+            peersSerched = new List<String>();
+            CancellationTokenSource cts = new CancellationTokenSource();
+
+            if (musics.Exists((m) => m.Artist.Equals(artist)))
+            {
+                Music x = musics.Where(m => m.Artist == artist).First();
+                return x;
+            }
+            peersSerched.Add(this.Url);
+
+            AskFriendsForMusic(this,"artist" ,artist, cts, deep);
+
+            Task.WaitAll(tasks.ToArray());
+
+            foreach (Task<Music> t in tasks)
+            {
+                if (t.Result != null)
+                {
+                    return t.Result;
+                }
+            }
+            return null;
         }
 
         public Music GetMusicByAlbum(string text)
