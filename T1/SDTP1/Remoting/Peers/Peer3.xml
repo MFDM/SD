@@ -9,7 +9,7 @@
         <Music>
             <Title>Solteiro</Title>
             <Artist>Regula</Artist>
-            <Album>Album1</Album>
+            <Album>Album1P3</Album>
             <Year>2000</Year>
             <Format>CD</Format>
 			<Owner>http://localhost:8000/RemotePeer.soap</Owner>
@@ -17,7 +17,7 @@
         <Music>
             <Title>Poetas de karaoke </Title>
             <Artist>Sam the kid</Artist>
-            <Album>Album2</Album>
+            <Album>Album2P3</Album>
             <Year>2001</Year>
             <Format>MP3</Format>
 			<Owner>http://localhost:8000/RemotePeer.soap</Owner>
