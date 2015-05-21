@@ -15,6 +15,8 @@ namespace Remoting
         {
             PO = po;
             InitializeComponent();
+            PO._form = this;
+            peerinfo.Text = PO.name +": " +PO.Url;
         }
 
         private void Search_Click(object sender, EventArgs e)
@@ -24,7 +26,7 @@ namespace Remoting
 
             if (Title.Text != "")
             {
-                m = PO.GetMusicByTitle(Title.Text);
+                m = PO.SearchMusicByTitle(Title.Text);
                 invalidText = m == null;
             }
             else if (Album.Text != "")
@@ -39,7 +41,7 @@ namespace Remoting
             }
 
             if (m != null)
-                Refs.Text = m.Title;
+                MusicInfo.Rows.Add("peearx", m.Artist, m.Title, m.Year, m.Album);
             else
                 NoSearchText.Text = invalidText ? InvalidTextString : NoSearchTextString;
 

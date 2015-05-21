@@ -14,6 +14,8 @@ namespace Remoting
        List<String> peersLinks { get; set; }
        void AddMusic(Music m);
        void AddPeerUrl(String url);
+       String getPeerFriendUrl(int idx);
+       int getNumPeerFriends();
        Music GetMusicByTitle(String title);
     }
 }

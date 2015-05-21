@@ -41,7 +41,7 @@
             this.XMLFile.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.XMLFile.Location = new System.Drawing.Point(41, 45);
             this.XMLFile.Name = "XMLFile";
-            this.XMLFile.Size = new System.Drawing.Size(121, 31);
+            this.XMLFile.Size = new System.Drawing.Size(62, 17);
             this.XMLFile.TabIndex = 2;
             this.XMLFile.Text = "XMLFile:";
             // 
@@ -66,9 +66,9 @@
             // register
             // 
             this.register.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.register.Location = new System.Drawing.Point(142, 104);
+            this.register.Location = new System.Drawing.Point(146, 87);
             this.register.Name = "register";
-            this.register.Size = new System.Drawing.Size(171, 32);
+            this.register.Size = new System.Drawing.Size(169, 40);
             this.register.TabIndex = 5;
             this.register.Text = "Register";
             this.register.UseVisualStyleBackColor = true;
@@ -86,6 +86,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.Menu;
             this.ClientSize = new System.Drawing.Size(459, 158);
             this.Controls.Add(this.NoPath);
             this.Controls.Add(this.register);

@@ -4,18 +4,18 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Remoting
 {
     public class Peer : MarshalByRefObject, IPeer
     {
-
+        public String name { get; set; }
         public List<Music> musics { get; set; }
         public List<String> peersLinks { get; set; }
         public string Url { get; set; }
-
-        private List<Task<Music>> tasks = new List<Task<Music>>();
-
+        public Form _form;
+      
         public Peer()
         {
             musics = new List<Music>();
@@ -32,9 +32,35 @@ namespace Remoting
             peersLinks.Add(m);
         }
 
-
-        public Music GetMusicByTitle(String title)
+        public string getPeerFriendUrl(int idx)
         {
+            return peersLinks.ElementAt(idx);
+        }
+
+        public int getNumPeerFriends()
+        {
+            return peersLinks.Count;
+        }
+
+        public Music GetMusicByTitle(string title)
+        {
+
+            Music music = null;
+            if (musics.Exists((m) => m.Title.Equals(title)))
+            {
+                music= musics.Where((m) => m.Title.Equals(title)).First();
+            }
+
+            return music;
+        }
+
+        private List<Task<Music>> tasks;
+        private List<String> peersSerched;
+
+        public Music SearchMusicByTitle(String title)
+        {
+            tasks = new List<Task<Music>>();
+            peersSerched = new List<String>();
             CancellationTokenSource cts = new CancellationTokenSource();
 
             if (musics.Exists((m) => m.Title.Equals(title)))
@@ -42,18 +68,18 @@ namespace Remoting
                 Music x = musics.Where(m => m.Title == title).First();
                 return x;
             }
-
+            peersSerched.Add(this.Url);
 
             AskFriendsForMusic(this, title, cts);
-
-
-            Task.WaitAll(tasks.ToArray(), cts.Token);
+            
+            Task.WaitAll(tasks.ToArray());
 
             foreach (Task<Music> t in tasks)
             {
                 if (t.Result != null)
                 {
                     return  t.Result;
+                    _form.Peer
                 }
             }
             return null;
@@ -61,39 +87,49 @@ namespace Remoting
 
         // ReSharper disable once UnusedParameter.Local
         public void AskFriendsForMusic(IPeer p, string title, CancellationTokenSource cts)
-        {
-            foreach (String url in p.peersLinks)
+        {   
+            for( int i =0; i < p.getNumPeerFriends(); ++i)
             {
-                if (!cts.IsCancellationRequested)
+                String url = p.getPeerFriendUrl(i);
+
+                if (!peersSerched.Contains(url))
                 {
-                    Task<Music> t1 = Task.Factory.StartNew(() =>
+                    peersSerched.Add(url);
+                    if (!cts.IsCancellationRequested)
                     {
-                        try
+                        Task<Music> t1 = Task.Factory.StartNew(() =>
                         {
-                            IPeer peer = ((IPeer) Activator.GetObject(typeof (IPeer), url));
-                            Music music = peer.GetMusicByTitle(title);
-
-                            if (music != null) return music;
-
-                            Task.Factory.StartNew(() =>
+                            try
                             {
-                                AskFriendsForMusic(peer, title, cts);
-                            });
-                            return null;
+                                if (!cts.IsCancellationRequested)
+                                {
+                                    IPeer peer = ((IPeer) Activator.GetObject(typeof (IPeer), url));
+                                    Music music = peer.GetMusicByTitle(title);
 
-                        }
-                        catch (WebException we)
-                        {
-                            return null;
-                        }
-                        catch (OperationCanceledException ce)
-                        {
-                            return null;
-                        }
+                                    if (music != null)
+                                    {
+                                        cts.Cancel();
+                                        return music;
+                                    }
 
-                    }, cts.Token);
+                                    if (!cts.IsCancellationRequested)
+                                        AskFriendsForMusic(peer, title, cts);
+                                }
+                                return null;
+                            }
+                            catch (WebException we)
+                            {
+                                return null;
+                            }
+                            catch (OperationCanceledException ce)
+                            {
+                                return null;
+                            }
 
-                    tasks.Add(t1);
+                        }, cts.Token);
+
+                        tasks.Add(t1);
+                    }
                 }
             }
         }

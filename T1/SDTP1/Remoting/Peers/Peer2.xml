@@ -2,28 +2,26 @@
 <PeerInfo
     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <port>8888</port>
+    <port>8080</port>
     <portname>nameport</portname>
-	<name>Peer1</name>
+	<name>Peer2</name>
     <musics>
         <Music>
-            <Title>oioi</Title>
-            <Artist>Artist1</Artist>
+            <Title>ChupaTeresa</Title>
+            <Artist>QuimBarreiros</Artist>
             <Album>Album1</Album>
             <Year>2000</Year>
             <Format>CD</Format>
         </Music>
         <Music>
-            <Title>olaola</Title>
-            <Artist>Artist2</Artist>
+            <Title>Poetas de karaoke </Title>
+            <Artist>Sam the kid</Artist>
             <Album>Album2</Album>
             <Year>2001</Year>
             <Format>MP3</Format>
         </Music>
     </musics>
-	<friends>
-		<PeerFriend>
-			<Url>http://localhost/Peer2:5555/RemotePeer.soap</Url>
-		</PeerFriend>
-	</friends>
+    <friends>
+	<Url>http://localhost:8888/RemotePeer.soap</Url>
+    </friends>
 </PeerInfo>

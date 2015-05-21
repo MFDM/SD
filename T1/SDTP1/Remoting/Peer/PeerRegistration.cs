@@ -70,6 +70,8 @@ namespace Remoting
                 _peer.AddMusic(m);
             foreach (String p in _peerInfo.friends)
                 _peer.AddPeerUrl(p);
+            _peer.Url = url;
+            _peer.name = _peerInfo.name;
         }
     }
 }
