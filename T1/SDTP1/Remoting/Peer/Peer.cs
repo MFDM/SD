@@ -4,7 +4,6 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace Remoting
 {
@@ -39,7 +38,7 @@ namespace Remoting
         }
 
         public int getNumPeerFriends()
-        {
+        { 
             return peersLinks.Count;
         }
 
