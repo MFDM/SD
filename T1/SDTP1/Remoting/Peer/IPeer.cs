@@ -22,9 +22,12 @@ namespace Remoting
 
        int getNumPeerFriends();
 
-       Music GetMusicByTitle(string title, string whosLooking);
+       Music GetMusic(string by, string whosLooking, Peer.SearchBy func);
 
-       Music getMusicByArtist(string search, string whosLooking);
-       Music GetMusicByAlbum(string search, string whosLooking);
+       /*Music GetMusicByTitle(string title, string whosLooking);
+
+       Music GetMusicByArtist(string search, string whosLooking);
+
+       Music GetMusicByAlbum(string search, string whosLooking);*/
    }
 }

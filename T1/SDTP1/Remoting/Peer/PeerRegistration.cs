@@ -76,7 +76,7 @@ namespace Remoting
                 _peer.AddPeerUrl(p);
             _peer.Url = url;
             
-            _peer.name = _peerInfo.name;
+            _peer.Name = _peerInfo.name;
         }
     }
 }
