@@ -1,0 +1,13 @@
+Para registar o peer, o utilizador introduz o ficheiro de configuração xml, que contém o porto e o nome do peer de maneira a saber onde registá-lo. Contém, também a colecção de referências musicais do Peer em questão. Depois de definido o caminho para o ficheiro de configuração, desseriazamos o seu conteúdo para uma instância de PeerInfo. A classe PeerInfo é uma classe auxiliar que contém os campos necessários para uma correcta desserialização, de maneira a guardar em memória tanto a colecção de músicas, como o conjunto de Peers ja conhecidos.
+
+Estando o Peer já registado no seu canal, é craido o proxy, para o objecto Well-Known, através de Activator.GetObject, indicando o tipo, neste caso IPeer, e o seu URL. Este deve poder armazenar tanto as músicas como os peers em sua própria lista, por isso o próximo passo é dar-lhe a conhecer os dados que foram desserializados e guardados na instância de PeerInfo. Visto que O Serializador Soap não suporta a serialização de Tipos Genéricos, a lista completa não pode ser passada ao Peer, por isso as músicas e os links dos peers conhecidos devem ser passados um a um.
+
+Estamos aptos, assim, a pesquisar músicas. A pesquisa pode ser feita por Titulo, Album ou Artista, e inicialmente é feita localmente e só depois online, fazendo pedidos aos Peers conhecidos.
+
+2.3.1 Pesquisa Local
+
+Pesquisa local é realizada apenas na biblioteca local do peer. Ou seja, na lista que foi armazenada através da leitura do ficheiro xml. A interação com o utilizador faz-se através do WindowsForm, onde é possível inserir dados pelos quais a pesquisa deve ser feita. Se encontrada localmente, a música é retornada e o utilizador pode visualizar os seus dados.
+
+2.3.1 Pesquisa Online
+
+Caso não tenha sido encontrada a música por pesquisa loal, é necessário pesquisar pela música nos peers conhecidos.

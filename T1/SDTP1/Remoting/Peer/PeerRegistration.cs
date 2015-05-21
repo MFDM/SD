@@ -61,7 +61,7 @@ namespace Remoting
             HttpChannel ch = new HttpChannel(props, clientProv, serverProv);
             ChannelServices.RegisterChannel(ch, false);
             RemotingConfiguration.RegisterWellKnownServiceType(
-                typeof (Peer), "RemotePeer.soap", WellKnownObjectMode.Singleton);
+                typeof (Peer), "RemotePeer.soap", WellKnownObjectMode.SingleCall);
             
             String url = "http://localhost:" + _peerInfo.port +"/RemotePeer.soap";
             Console.WriteLine(url);
