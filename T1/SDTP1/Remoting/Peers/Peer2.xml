@@ -9,7 +9,7 @@
         <Music>
             <Title>ChupaTeresa</Title>
             <Artist>QuimBarreiros</Artist>
-            <Album>Album1</Album>
+            <Album>Album1P2</Album>
             <Year>2000</Year>
             <Format>CD</Format>
 			<Owner>http://localhost:8080/RemotePeer.soap</Owner>
@@ -17,7 +17,7 @@
         <Music>
             <Title>Poetas de karaoke </Title>
             <Artist>Sam the kid</Artist>
-            <Album>Album2</Album>
+            <Album>Album2P2</Album>
             <Year>2001</Year>
             <Format>MP3</Format>
 			<Owner>http://localhost:8080/RemotePeer.soap</Owner>

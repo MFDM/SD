@@ -9,8 +9,9 @@ namespace Remoting
 {
     public partial class PeerRegistration : Form
     {
-
+     
         private PeerInfo _peerInfo;
+        private SearchMusic _formsearch;
         private Peer _peer;
         private OpenFileDialog _ofd;
         private const string NoPathPresent = "Please insert or browse the xml file path.";
@@ -39,10 +40,13 @@ namespace Remoting
             {
                 XmlLoader xl = new XmlLoader(xml.Text);
                 _peerInfo = xl.XmlLoad();
+               
                 ServerRegist(_peerInfo.port);
                 Hide();
-                var form = new SearchMusic(_peer);
-                form.Show();
+                //var form = new SearchMusic(_peer);
+                 _formsearch = new SearchMusic(_peer);
+                 _peer.myform = _formsearch;
+                _formsearch.Show();
 
             }
             else
@@ -71,6 +75,7 @@ namespace Remoting
             foreach (String p in _peerInfo.friends)
                 _peer.AddPeerUrl(p);
             _peer.Url = url;
+            
             _peer.name = _peerInfo.name;
         }
     }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Windows.Forms;
 
 namespace Remoting
@@ -8,6 +9,7 @@ namespace Remoting
     {
         private const string NoSearchTextString = "No title, album or artist were introduced for search.";
         private const string InvalidTextString = "Text insert had no music matched.";
+        private SynchronizationContext _uiContext;
 
         private Peer PO { get; set; }
 
@@ -15,6 +17,7 @@ namespace Remoting
         {
             PO = po;
             InitializeComponent();
+            _uiContext = SynchronizationContext.Current;
             peerinfo.Text = PO.name +": " +PO.Url;
         }
 
@@ -23,26 +26,26 @@ namespace Remoting
             MusicInfo.Rows.Clear();
             NoSearchText.Text = "";
 
-            int deep = 0;
+            int depth = 0;
             if (DeepBox.Text != "")
-                deep = Int16.Parse(DeepBox.Text);
+                depth = Int16.Parse(DeepBox.Text);
             
             Music m = null;
             bool invalidText = false;
 
             if (Title.Text != "")
             {
-                m = PO.SearchMusicByTitle(Title.Text,deep);
+                m = PO.SearchMusicByTitle(Title.Text, depth);
                 invalidText = m == null;
             }
             else if (Album.Text != "")
             {
-                m = PO.GetMusicByAlbum(Album.Text);
+                m = PO.SearchMusicByAlbum(Album.Text, depth);
                 invalidText = m == null;
             }
             else if (Artist.Text != "")
             {
-                m = PO.SearchMusicByArtist(Artist.Text,deep);
+                m = PO.SearchMusicByArtist(Artist.Text, depth);
                 invalidText = m == null;
             }
 
@@ -81,5 +84,10 @@ namespace Remoting
                 }
             }
         }
+
+        public void UpdateTextBox(string text)
+        {
+            _uiContext.Send((o) => connect.AppendText("Peer " + text + " searched you. \r\n"), null);
+        }  
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading;
 
 namespace Remoting
 {
@@ -7,6 +8,7 @@ namespace Remoting
    {
        string Url { get; set; }
        //PeerInfo PeerInfo { get; set; }
+       SearchMusic myform { get; set; }
 
        List<Music> musics { get; set; }
 
@@ -20,8 +22,9 @@ namespace Remoting
 
        int getNumPeerFriends();
 
-       Music GetMusicByTitle(String title);
+       Music GetMusicByTitle(string title, string whosLooking);
 
-       Music getMusicByArtist(string search);
+       Music getMusicByArtist(string search, string whosLooking);
+       Music GetMusicByAlbum(string search, string whosLooking);
    }
 }
