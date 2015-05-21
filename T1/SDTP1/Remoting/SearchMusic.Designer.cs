@@ -48,10 +48,12 @@ namespace Remoting
             this.MTitle = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MAlbum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DeepBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.addMusicButton = new System.Windows.Forms.Button();
-            this.MFormat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.connect = new System.Windows.Forms.RichTextBox();
+            this.Lconnect = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.MusicInfo)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,6 +193,11 @@ namespace Remoting
             this.MAlbum.HeaderText = "Album";
             this.MAlbum.Name = "MAlbum";
             // 
+            // MFormat
+            // 
+            this.MFormat.HeaderText = "Format";
+            this.MFormat.Name = "MFormat";
+            // 
             // DeepBox
             // 
             this.DeepBox.Location = new System.Drawing.Point(459, 80);
@@ -217,16 +224,31 @@ namespace Remoting
             this.addMusicButton.UseVisualStyleBackColor = true;
             this.addMusicButton.Click += new System.EventHandler(this.addMusicButton_Click);
             // 
-            // MFormat
+            // connect
             // 
-            this.MFormat.HeaderText = "Format";
-            this.MFormat.Name = "MFormat";
+            this.connect.Location = new System.Drawing.Point(41, 390);
+            this.connect.Name = "connect";
+            this.connect.Size = new System.Drawing.Size(569, 95);
+            this.connect.TabIndex = 19;
+            this.connect.Text = "";
+            // 
+            // Lconnect
+            // 
+            this.Lconnect.AutoSize = true;
+            this.Lconnect.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
+            this.Lconnect.Location = new System.Drawing.Point(38, 370);
+            this.Lconnect.Name = "Lconnect";
+            this.Lconnect.Size = new System.Drawing.Size(135, 17);
+            this.Lconnect.TabIndex = 20;
+            this.Lconnect.Text = "Connections Online:";
             // 
             // SearchMusic
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(651, 384);
+            this.ClientSize = new System.Drawing.Size(660, 536);
+            this.Controls.Add(this.Lconnect);
+            this.Controls.Add(this.connect);
             this.Controls.Add(this.addMusicButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.DeepBox);
@@ -271,5 +293,7 @@ namespace Remoting
         private Label label1;
         private Button addMusicButton;
         private DataGridViewTextBoxColumn MFormat;
+        private RichTextBox connect;
+        private Label Lconnect;
     }
 }
