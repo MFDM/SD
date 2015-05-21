@@ -15,7 +15,6 @@ namespace Remoting
         {
             PO = po;
             InitializeComponent();
-            PO._form = this;
             peerinfo.Text = PO.name +": " +PO.Url;
         }
 

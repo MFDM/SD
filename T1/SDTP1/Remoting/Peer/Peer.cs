@@ -14,7 +14,6 @@ namespace Remoting
         public List<Music> musics { get; set; }
         public List<String> peersLinks { get; set; }
         public string Url { get; set; }
-        public Form _form;
       
         public Peer()
         {
@@ -78,8 +77,7 @@ namespace Remoting
             {
                 if (t.Result != null)
                 {
-                    return  t.Result;
-                    _form.Peer
+                  return  t.Result;
                 }
             }
             return null;
