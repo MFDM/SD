@@ -20,12 +20,19 @@ namespace Remoting
 
         private void Search_Click(object sender, EventArgs e)
         {
+            MusicInfo.Rows.Clear();
+            NoSearchText.Text = "";
+
+            int deep = 0;
+            if (DeepBox.Text != "")
+                deep = Int16.Parse(DeepBox.Text);
+            
             Music m = null;
             bool invalidText = false;
 
             if (Title.Text != "")
             {
-                m = PO.SearchMusicByTitle(Title.Text);
+                m = PO.SearchMusicByTitle(Title.Text,deep);
                 invalidText = m == null;
             }
             else if (Album.Text != "")
@@ -35,12 +42,12 @@ namespace Remoting
             }
             else if (Artist.Text != "")
             {
-                m = PO.GetMusicByArtist(Artist.Text);
+                m = PO.SearchMusicByArtist(Artist.Text,deep);
                 invalidText = m == null;
             }
 
             if (m != null)
-                MusicInfo.Rows.Add("peearx", m.Artist, m.Title, m.Year, m.Album);
+                MusicInfo.Rows.Add(m.Owner, m.Artist, m.Title, m.Year, m.Album,m.Format);
             else
                 NoSearchText.Text = invalidText ? InvalidTextString : NoSearchTextString;
 
@@ -58,6 +65,21 @@ namespace Remoting
                 musicProps.Add("Artist", Artist.Text);
             
             return musicProps;
+        }
+
+        private void addMusicButton_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow row in MusicInfo.SelectedRows)
+            {
+                if (!row.Cells["Peer"].Value.ToString().Equals(PO.Url))
+                {
+                    PO.AddMusic(new Music(row.Cells["MTitle"].Value.ToString(), row.Cells["MArtist"].Value.ToString(),
+                        row.Cells["MAlbum"].Value.ToString(), int.Parse(row.Cells["MYear"].Value.ToString()),
+                        row.Cells["MTitle"].Value.ToString(),PO.Url));
+
+                    PO.AddPeerUrl(row.Cells["Peer"].Value.ToString());
+                }
+            }
         }
     }
 }

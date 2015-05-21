@@ -24,5 +24,7 @@ namespace Remoting
        int getNumPeerFriends();
 
        Music GetMusicByTitle(String title);
-    }
+
+       Music getMusicByArtist(string search);
+   }
 }

@@ -12,6 +12,7 @@
             <Album>Album1</Album>
             <Year>2000</Year>
             <Format>CD</Format>
+			<Owner>http://localhost:8888/RemotePeer.soap</Owner>
         </Music>
         <Music>
             <Title>Secons</Title>
@@ -19,6 +20,7 @@
             <Album>Album2</Album>
             <Year>2001</Year>
             <Format>MP3</Format>
+			<Owner>http://localhost:8888/RemotePeer.soap</Owner>
         </Music>
     </musics>
     <friends>
