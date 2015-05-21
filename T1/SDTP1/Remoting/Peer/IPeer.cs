@@ -7,7 +7,7 @@ namespace Remoting
    public interface IPeer
    {
        string Url { get; set; }
-       //PeerInfo PeerInfo { get; set; }
+
        SearchMusic myform { get; set; }
 
        List<Music> musics { get; set; }
@@ -23,11 +23,5 @@ namespace Remoting
        int getNumPeerFriends();
 
        Music GetMusic(string by, string whosLooking, Peer.SearchBy func);
-
-       /*Music GetMusicByTitle(string title, string whosLooking);
-
-       Music GetMusicByArtist(string search, string whosLooking);
-
-       Music GetMusicByAlbum(string search, string whosLooking);*/
    }
 }
