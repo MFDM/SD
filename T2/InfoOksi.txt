@@ -1,0 +1,9 @@
+O que é?
+
+OpenNebula é uma ferramenta que oferece uma plataforma open-source expansível e segura para disponibilizar diversos recursos e soluções que facilitam e flexibilizam a gestão completa de infraestruturas virtualizadas. Isto é, uma ferramenta que serve para gerir a Cloud. Ajuda a sincronizar o armazenamento, rede e técnicas virtuais. Permite também aos utilizadores implementar e gerenciar máquinas virtuais nos recursos físicos de forma dinâmica, de acordo com as estratégias de alocação.
+
+OpenNebula pode ser utilizado para o desenvolvimento de Clouds privadas, públicas e híbridas, possuindo a capacidade de combinar uma infraestrutura local com uma infraestrutura baseada em Cloud pública, permitindo ambientes altamente escaláveis.
+
+Esta ferramenta inclui recursos de integração, gestão, escalabilidade, segurança e contabilidade de datacenters.  Enfatiza a interoperabilidade, padronização e portabilidade, fornecendo aos utilizadores e administradores da Cloud a possibilidade de escolha entre diversas interfaces e hipervisores. É desenvolvido em C++ e possui uma base de dados altamente escalável back-end com suporte para MySQL e SQLite.
+
+Possui também uma arquitetura flexível que pode acomodar hardwares múltiplos e combinações diferentes de softwares. A ferramenta pode ser instalada em qualquer distribuição GNU Linux a partir do seu código fonte ou através dos repositórios oficiais de algumas distribuições específicas (Debian, openSUSE, Ubuntu).
