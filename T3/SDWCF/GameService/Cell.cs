@@ -5,7 +5,13 @@ using System.Web;
 
 namespace GameService
 {
+    enum CellEnum
+    {
+        
+    }
+
     public class Cell
     {
+        string cell
     }
 }
