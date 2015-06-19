@@ -6,33 +6,18 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 
-namespace WcfService1
+namespace GameService
 {
-    [ServiceContract]
-    public interface IGame
-    {
-        [OperationContract]
-        string GetData(int value);
 
-        [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
-
-        
-    }
-    
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the interface name "IService1" in both code and config file together.
     [ServiceContract]
-    public interface IGamePlayer : IGame
+    public interface IGamePlayer
     {
-        // TODO: Add your service operations here
         [OperationContract]
         string SetPlay(int n1, int n2);
-
-       
     }
 
     [ServiceContract]
-    public interface IGameManager : IGame
+    public interface IGameManager
     {
         [OperationContract]
         string StartGame(int n1, int n2);
@@ -41,8 +26,6 @@ namespace WcfService1
         string EndGame();
     }
 
-
-    // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
     public class CompositeType
     {
