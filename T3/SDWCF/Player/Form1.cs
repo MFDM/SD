@@ -15,5 +15,10 @@ namespace Player
         {
             InitializeComponent();
         }
+
+        private void playButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

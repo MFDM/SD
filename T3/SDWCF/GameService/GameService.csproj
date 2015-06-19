@@ -63,6 +63,8 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Board.cs" />
+    <Compile Include="Cell.cs" />
     <Compile Include="Game.svc.cs">
       <DependentUpon>Game.svc</DependentUpon>
     </Compile>

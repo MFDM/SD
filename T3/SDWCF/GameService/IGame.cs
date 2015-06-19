@@ -20,10 +20,10 @@ namespace GameService
     public interface IGameManager
     {
         [OperationContract]
-        string StartGame(int n1, int n2);
+        void StartGame(int n1, int n2);
 
         [OperationContract]
-        string EndGame();
+        void EndGame();
     }
 
     [DataContract]

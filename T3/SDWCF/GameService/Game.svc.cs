@@ -10,19 +10,23 @@ namespace GameService
 {
     public class Game : IGamePlayer, IGameManager
     {
-        string StartGame(int n1, int n2) 
-        { 
-            return "Game started";
+        private Board b;
+        public void StartGame(int n1, int n2)
+        {
+            b = new Board(n1, n2);
         }
 
-        string EndGame() 
+        public void EndGame()
         {
-            return "Game End!";
+            b = null;
         }
 
-        string SetPlay(int n1, int n2) 
+        public string SetPlay(int n1, int n2)
         {
-            return "You Win";
+            String res = b._celsContainer[n1][n2].cellContent;
+            if (res != "Treasure") 
+                b._celsContainer[n1][n2].SetRandomContent();
+            return res;
         }
     }
 }
