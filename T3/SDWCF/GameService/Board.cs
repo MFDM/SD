@@ -19,7 +19,7 @@ namespace GameService
         {
             int tx = new Random().Next(0, x);
             int ty = new Random().Next(0, y);
-            _celsContainer[tx][ty].SetTreasure();
+            _celsContainer[tx][ty].SetTreasureContent();
         }
 
         private void FillBoard(int x, int y)

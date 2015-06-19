@@ -8,6 +8,7 @@ using System.Text;
 
 namespace GameService
 {
+    [ServiceBehavior(InstanceContextMode = InstanceContextMode.Single)]
     public class Game : IGamePlayer, IGameManager
     {
         private Board b;

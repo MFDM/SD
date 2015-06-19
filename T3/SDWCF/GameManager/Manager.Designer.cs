@@ -59,6 +59,7 @@
             this.startgameButton.TabIndex = 2;
             this.startgameButton.Text = "Start Game!";
             this.startgameButton.UseVisualStyleBackColor = true;
+            this.startgameButton.Click += new System.EventHandler(this.startgameButton_Click);
             // 
             // endgameButton
             // 

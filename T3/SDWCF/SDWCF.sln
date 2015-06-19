@@ -6,8 +6,14 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameService", "GameService\GameService.csproj", "{994D5FC9-A679-49FB-8729-D80AEDA5ACAF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameManager", "GameManager\GameManager.csproj", "{FDCEE361-4039-44E7-9E02-8E4230E87AAF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{994D5FC9-A679-49FB-8729-D80AEDA5ACAF} = {994D5FC9-A679-49FB-8729-D80AEDA5ACAF}
+	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Player", "Player\Player.csproj", "{BC34CFF8-39F9-4F3E-BCED-1354EFA4FF12}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GamePlayer", "Player\GamePlayer.csproj", "{BC34CFF8-39F9-4F3E-BCED-1354EFA4FF12}"
+	ProjectSection(ProjectDependencies) = postProject
+		{994D5FC9-A679-49FB-8729-D80AEDA5ACAF} = {994D5FC9-A679-49FB-8729-D80AEDA5ACAF}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
