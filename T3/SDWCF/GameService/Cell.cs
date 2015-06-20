@@ -9,7 +9,7 @@ namespace GameService
 
     public class Cell
     {
-        private string[] cellContentVals = {"Death","Life","Zero"};
+        private string[] cellContentVals = {"Death","Life","Empty"};
 
         public string cellContent { get; set; }
 

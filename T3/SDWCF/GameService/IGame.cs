@@ -9,12 +9,27 @@ using System.Text;
 namespace GameService
 {
 
-    [ServiceContract]
+    [ServiceContract(Namespace="Silverlight",CallbackContract = typeof(IGamePlayerReceiverCallback))]
     public interface IGamePlayer
     {
         [OperationContract]
-        string SetPlay(int n1, int n2);
+        string MakeMove(int n1, int n2);
+
+        [OperationContract]
+        void JoinGame();
+        
+        [OperationContract]
+        void ExitGame();
     }
+    
+    // CallBack interface in client 
+    public interface IGamePlayerReceiverCallback
+    {
+        [OperationContract(IsOneWay = false)]
+        [FaultContract(typeof(FaultException<string>))]
+        String NewAnnounce(String msg, int ex);
+    }
+
 
     [ServiceContract]
     public interface IGameManager

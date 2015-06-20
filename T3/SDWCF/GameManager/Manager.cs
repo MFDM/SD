@@ -6,7 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using GameManager.TP3;
+using GameManager.ServiceReference1;
 
 namespace GameManager
 {
@@ -22,6 +22,11 @@ namespace GameManager
         {
             game = new GameManagerClient();
             game.StartGame(Int32.Parse(xValue.Text), Int32.Parse(yValue.Text));
+        }
+
+        private void Manager_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

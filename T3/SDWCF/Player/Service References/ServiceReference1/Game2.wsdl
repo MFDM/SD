@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="Silverlight" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="Silverlight" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="Silverlight/Imports">
+      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd0" namespace="Silverlight" />
+      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IGamePlayer_MakeMove_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeMove" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_MakeMove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_JoinGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGame" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_JoinGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_ExitGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExitGame" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_ExitGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExitGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAnnounce_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NewAnnounce" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAnnounce_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NewAnnounceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAnnounce_FaultExceptionOf_StringFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultExceptionOfstring" />
+  </wsdl:message>
+  <wsdl:portType name="IGamePlayer">
+    <wsdl:operation name="MakeMove">
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/MakeMove" message="tns:IGamePlayer_MakeMove_InputMessage" />
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/MakeMoveResponse" message="tns:IGamePlayer_MakeMove_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="JoinGame">
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/JoinGame" message="tns:IGamePlayer_JoinGame_InputMessage" />
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/JoinGameResponse" message="tns:IGamePlayer_JoinGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExitGame">
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/ExitGame" message="tns:IGamePlayer_ExitGame_InputMessage" />
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/ExitGameResponse" message="tns:IGamePlayer_ExitGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAnnounce">
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/NewAnnounce" message="tns:IGamePlayer_NewAnnounce_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/NewAnnounceResponse" message="tns:IGamePlayer_NewAnnounce_InputCallbackMessage" />
+      <wsdl:fault wsaw:Action="Silverlight/IGamePlayer/NewAnnounceFaultExceptionOf_StringFault" name="FaultExceptionOf_StringFault" message="tns:IGamePlayer_NewAnnounce_FaultExceptionOf_StringFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>
