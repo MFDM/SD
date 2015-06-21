@@ -35,6 +35,8 @@
             this.xLabel = new System.Windows.Forms.Label();
             this.yLabel = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.advTextBox = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // xValue
@@ -56,7 +58,7 @@
             this.startgameButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.startgameButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startgameButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.startgameButton.Location = new System.Drawing.Point(169, 122);
+            this.startgameButton.Location = new System.Drawing.Point(169, 165);
             this.startgameButton.Name = "startgameButton";
             this.startgameButton.Size = new System.Drawing.Size(94, 69);
             this.startgameButton.TabIndex = 2;
@@ -69,7 +71,7 @@
             this.endgameButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.endgameButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endgameButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.endgameButton.Location = new System.Drawing.Point(30, 122);
+            this.endgameButton.Location = new System.Drawing.Point(29, 165);
             this.endgameButton.Name = "endgameButton";
             this.endgameButton.Size = new System.Drawing.Size(88, 69);
             this.endgameButton.TabIndex = 3;
@@ -82,7 +84,7 @@
             this.xLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xLabel.Location = new System.Drawing.Point(116, 32);
             this.xLabel.Name = "xLabel";
-            this.xLabel.Size = new System.Drawing.Size(16, 20);
+            this.xLabel.Size = new System.Drawing.Size(32, 37);
             this.xLabel.TabIndex = 4;
             this.xLabel.Text = "x";
             // 
@@ -92,7 +94,7 @@
             this.yLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.yLabel.Location = new System.Drawing.Point(116, 73);
             this.yLabel.Name = "yLabel";
-            this.yLabel.Size = new System.Drawing.Size(16, 20);
+            this.yLabel.Size = new System.Drawing.Size(32, 37);
             this.yLabel.TabIndex = 5;
             this.yLabel.Text = "y";
             // 
@@ -102,16 +104,34 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(43, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 19);
+            this.label1.Size = new System.Drawing.Size(106, 39);
             this.label1.TabIndex = 6;
             this.label1.Text = "Border";
+            // 
+            // advTextBox
+            // 
+            this.advTextBox.Location = new System.Drawing.Point(95, 118);
+            this.advTextBox.Name = "advTextBox";
+            this.advTextBox.Size = new System.Drawing.Size(168, 20);
+            this.advTextBox.TabIndex = 7;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 121);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Advertisement:";
             // 
             // Manager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(275, 210);
+            this.ClientSize = new System.Drawing.Size(275, 266);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.advTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.yLabel);
             this.Controls.Add(this.xLabel);
@@ -136,6 +156,8 @@
         private System.Windows.Forms.Label xLabel;
         private System.Windows.Forms.Label yLabel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox advTextBox;
+        private System.Windows.Forms.Label label2;
     }
 }
 

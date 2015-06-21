@@ -20,6 +20,9 @@ namespace GameManager.ServiceReference1 {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/EndGame", ReplyAction="http://tempuri.org/IGameManager/EndGameResponse")]
         void EndGame();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IGameManager/SetAdv", ReplyAction="http://tempuri.org/IGameManager/SetAdvResponse")]
+        void SetAdv(string adv);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -56,22 +59,39 @@ namespace GameManager.ServiceReference1 {
         public void EndGame() {
             base.Channel.EndGame();
         }
+        
+        public void SetAdv(string adv) {
+            base.Channel.SetAdv(adv);
+        }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="Silverlight", ConfigurationName="ServiceReference1.IGamePlayer", CallbackContract=typeof(GameManager.ServiceReference1.IGamePlayerCallback))]
     public interface IGamePlayer {
         
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/SetPlay", ReplyAction="Silverlight/IGamePlayer/SetPlayResponse")]
-        string SetPlay(int n1, int n2);
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/MakeMove", ReplyAction="Silverlight/IGamePlayer/MakeMoveResponse")]
+        string MakeMove(int n1, int n2);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/JoinGame", ReplyAction="Silverlight/IGamePlayer/JoinGameResponse")]
+        void JoinGame();
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/ExitGame", ReplyAction="Silverlight/IGamePlayer/ExitGameResponse")]
+        void ExitGame();
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/TranslateAdv", ReplyAction="Silverlight/IGamePlayer/TranslateAdvResponse")]
+        string TranslateAdv(string targetLng);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     public interface IGamePlayerCallback {
         
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/newAnnounce", ReplyAction="Silverlight/IGamePlayer/newAnnounceResponse")]
-        [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException<string>), Action="Silverlight/IGamePlayer/newAnnounceFaultExceptionOf_StringFault", ProtectionLevel=System.Net.Security.ProtectionLevel.None, Name="FaultExceptionOfstring", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
-        string newAnnounce(string msg, int ex);
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/NewAnnounce", ReplyAction="Silverlight/IGamePlayer/NewAnnounceResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException<string>), Action="Silverlight/IGamePlayer/NewAnnounceFaultExceptionOf_StringFault", ProtectionLevel=System.Net.Security.ProtectionLevel.None, Name="FaultExceptionOfstring", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
+        string NewAnnounce(string msg, int ex);
+        
+        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/NewAdvertisement", ReplyAction="Silverlight/IGamePlayer/NewAdvertisementResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ServiceModel.FaultException<string>), Action="Silverlight/IGamePlayer/NewAdvertisementFaultExceptionOf_StringFault", ProtectionLevel=System.Net.Security.ProtectionLevel.None, Name="FaultExceptionOfstring", Namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel")]
+        string NewAdvertisement(string msg, int ex);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -102,8 +122,20 @@ namespace GameManager.ServiceReference1 {
                 base(callbackInstance, binding, remoteAddress) {
         }
         
-        public string SetPlay(int n1, int n2) {
-            return base.Channel.SetPlay(n1, n2);
+        public string MakeMove(int n1, int n2) {
+            return base.Channel.MakeMove(n1, n2);
+        }
+        
+        public void JoinGame() {
+            base.Channel.JoinGame();
+        }
+        
+        public void ExitGame() {
+            base.Channel.ExitGame();
+        }
+        
+        public string TranslateAdv(string targetLng) {
+            return base.Channel.TranslateAdv(targetLng);
         }
     }
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="Silverlight" elementFormDefault="qualified" targetNamespace="Silverlight" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-  <xs:element name="SetPlay">
+  <xs:element name="MakeMove">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="n1" type="xs:int" />
@@ -8,14 +8,48 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="SetPlayResponse">
+  <xs:element name="MakeMoveResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="SetPlayResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="MakeMoveResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="newAnnounce">
+  <xs:element name="JoinGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="JoinGameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExitGame">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ExitGameResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TranslateAdv">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="targetLng" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="TranslateAdvResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="TranslateAdvResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewAnnounce">
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
@@ -23,10 +57,25 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="newAnnounceResponse">
+  <xs:element name="NewAnnounceResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="newAnnounceResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="NewAnnounceResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewAdvertisement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="msg" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ex" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="NewAdvertisementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="NewAdvertisementResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -1,4 +1,4 @@
-﻿namespace Player
+﻿namespace GamePlayer
 {
     partial class Player
     {
@@ -42,6 +42,11 @@
             this.label3 = new System.Windows.Forms.Label();
             this.WOL = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.advTextBox = new System.Windows.Forms.TextBox();
+            this.lngComboBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.SetLanguage = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // xLabel
@@ -102,6 +107,7 @@
             // 
             this.lastPlaysTB.Location = new System.Drawing.Point(12, 53);
             this.lastPlaysTB.Name = "lastPlaysTB";
+            this.lastPlaysTB.ReadOnly = true;
             this.lastPlaysTB.Size = new System.Drawing.Size(77, 136);
             this.lastPlaysTB.TabIndex = 6;
             this.lastPlaysTB.Text = "";
@@ -119,6 +125,7 @@
             // 
             this.resultTB.Location = new System.Drawing.Point(239, 169);
             this.resultTB.Name = "resultTB";
+            this.resultTB.ReadOnly = true;
             this.resultTB.Size = new System.Drawing.Size(106, 20);
             this.resultTB.TabIndex = 8;
             // 
@@ -136,9 +143,8 @@
             this.liveslb.AutoSize = true;
             this.liveslb.Location = new System.Drawing.Point(156, 25);
             this.liveslb.Name = "liveslb";
-            this.liveslb.Size = new System.Drawing.Size(16, 13);
+            this.liveslb.Size = new System.Drawing.Size(0, 13);
             this.liveslb.TabIndex = 10;
-
             // 
             // label3
             // 
@@ -154,7 +160,7 @@
             this.WOL.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WOL.Location = new System.Drawing.Point(213, 84);
             this.WOL.Name = "WOL";
-            this.WOL.Size = new System.Drawing.Size(0, 28);
+            this.WOL.Size = new System.Drawing.Size(0, 56);
             this.WOL.TabIndex = 12;
             // 
             // label4
@@ -166,12 +172,67 @@
             this.label4.TabIndex = 13;
             this.label4.Text = "Lives:";
             // 
+            // advTextBox
+            // 
+            this.advTextBox.Location = new System.Drawing.Point(131, 221);
+            this.advTextBox.Name = "advTextBox";
+            this.advTextBox.ReadOnly = true;
+            this.advTextBox.Size = new System.Drawing.Size(214, 20);
+            this.advTextBox.TabIndex = 14;
+            // 
+            // lngComboBox
+            // 
+            this.lngComboBox.FormattingEnabled = true;
+            this.lngComboBox.Items.AddRange(new object[] {
+            "Portuguese - pt",
+            "English - en",
+            "Russian - ru",
+            "Spanish - es",
+            "French - fr"});
+            this.lngComboBox.Location = new System.Drawing.Point(12, 221);
+            this.lngComboBox.Name = "lngComboBox";
+            this.lngComboBox.Size = new System.Drawing.Size(103, 21);
+            this.lngComboBox.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Language:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(131, 202);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(77, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Advertisement:";
+            // 
+            // SetLanguage
+            // 
+            this.SetLanguage.Location = new System.Drawing.Point(12, 249);
+            this.SetLanguage.Name = "SetLanguage";
+            this.SetLanguage.Size = new System.Drawing.Size(103, 23);
+            this.SetLanguage.TabIndex = 18;
+            this.SetLanguage.Text = "Set Language";
+            this.SetLanguage.UseVisualStyleBackColor = true;
+            this.SetLanguage.Click += new System.EventHandler(this.SetLanguage_Click);
+            // 
             // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(357, 205);
+            this.ClientSize = new System.Drawing.Size(357, 287);
+            this.Controls.Add(this.SetLanguage);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lngComboBox);
+            this.Controls.Add(this.advTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.WOL);
             this.Controls.Add(this.label3);
@@ -187,7 +248,7 @@
             this.Controls.Add(this.yLabel);
             this.Controls.Add(this.xLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "Player";
+            this.Name = "GamePlayer";
             this.Text = "Form1";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -210,6 +271,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label WOL;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox advTextBox;
+        private System.Windows.Forms.ComboBox lngComboBox;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button SetLanguage;
     }
 }
 

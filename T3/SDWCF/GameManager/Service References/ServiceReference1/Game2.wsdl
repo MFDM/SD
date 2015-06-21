@@ -8,30 +8,74 @@
       <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IGamePlayer_SetPlay_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetPlay" />
+  <wsdl:message name="IGamePlayer_MakeMove_InputMessage">
+    <wsdl:part name="parameters" element="tns:MakeMove" />
   </wsdl:message>
-  <wsdl:message name="IGamePlayer_SetPlay_OutputMessage">
-    <wsdl:part name="parameters" element="tns:SetPlayResponse" />
+  <wsdl:message name="IGamePlayer_MakeMove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MakeMoveResponse" />
   </wsdl:message>
-  <wsdl:message name="IGamePlayer_newAnnounce_OutputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:newAnnounce" />
+  <wsdl:message name="IGamePlayer_JoinGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGame" />
   </wsdl:message>
-  <wsdl:message name="IGamePlayer_newAnnounce_InputCallbackMessage">
-    <wsdl:part name="parameters" element="tns:newAnnounceResponse" />
+  <wsdl:message name="IGamePlayer_JoinGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:JoinGameResponse" />
   </wsdl:message>
-  <wsdl:message name="IGamePlayer_newAnnounce_FaultExceptionOf_StringFault_FaultMessage">
+  <wsdl:message name="IGamePlayer_ExitGame_InputMessage">
+    <wsdl:part name="parameters" element="tns:ExitGame" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_ExitGame_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ExitGameResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_TranslateAdv_InputMessage">
+    <wsdl:part name="parameters" element="tns:TranslateAdv" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_TranslateAdv_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TranslateAdvResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAnnounce_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NewAnnounce" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAnnounce_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NewAnnounceResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAnnounce_FaultExceptionOf_StringFault_FaultMessage">
     <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultExceptionOfstring" />
   </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAdvertisement_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NewAdvertisement" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAdvertisement_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:NewAdvertisementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_NewAdvertisement_FaultExceptionOf_StringFault_FaultMessage">
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultExceptionOfstring" />
+  </wsdl:message>
   <wsdl:portType name="IGamePlayer">
-    <wsdl:operation name="SetPlay">
-      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/SetPlay" message="tns:IGamePlayer_SetPlay_InputMessage" />
-      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/SetPlayResponse" message="tns:IGamePlayer_SetPlay_OutputMessage" />
+    <wsdl:operation name="MakeMove">
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/MakeMove" message="tns:IGamePlayer_MakeMove_InputMessage" />
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/MakeMoveResponse" message="tns:IGamePlayer_MakeMove_OutputMessage" />
     </wsdl:operation>
-    <wsdl:operation name="newAnnounce">
-      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/newAnnounce" message="tns:IGamePlayer_newAnnounce_OutputCallbackMessage" />
-      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/newAnnounceResponse" message="tns:IGamePlayer_newAnnounce_InputCallbackMessage" />
-      <wsdl:fault wsaw:Action="Silverlight/IGamePlayer/newAnnounceFaultExceptionOf_StringFault" name="FaultExceptionOf_StringFault" message="tns:IGamePlayer_newAnnounce_FaultExceptionOf_StringFault_FaultMessage" />
+    <wsdl:operation name="JoinGame">
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/JoinGame" message="tns:IGamePlayer_JoinGame_InputMessage" />
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/JoinGameResponse" message="tns:IGamePlayer_JoinGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ExitGame">
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/ExitGame" message="tns:IGamePlayer_ExitGame_InputMessage" />
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/ExitGameResponse" message="tns:IGamePlayer_ExitGame_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="TranslateAdv">
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/TranslateAdv" message="tns:IGamePlayer_TranslateAdv_InputMessage" />
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/TranslateAdvResponse" message="tns:IGamePlayer_TranslateAdv_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAnnounce">
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/NewAnnounce" message="tns:IGamePlayer_NewAnnounce_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/NewAnnounceResponse" message="tns:IGamePlayer_NewAnnounce_InputCallbackMessage" />
+      <wsdl:fault wsaw:Action="Silverlight/IGamePlayer/NewAnnounceFaultExceptionOf_StringFault" name="FaultExceptionOf_StringFault" message="tns:IGamePlayer_NewAnnounce_FaultExceptionOf_StringFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="NewAdvertisement">
+      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/NewAdvertisement" message="tns:IGamePlayer_NewAdvertisement_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/NewAdvertisementResponse" message="tns:IGamePlayer_NewAdvertisement_InputCallbackMessage" />
+      <wsdl:fault wsaw:Action="Silverlight/IGamePlayer/NewAdvertisementFaultExceptionOf_StringFault" name="FaultExceptionOf_StringFault" message="tns:IGamePlayer_NewAdvertisement_FaultExceptionOf_StringFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

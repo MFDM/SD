@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace GameService
 {
@@ -20,6 +15,10 @@ namespace GameService
         
         [OperationContract]
         void ExitGame();
+
+        [OperationContract]
+        string TranslateAdv(string targetLng);
+
     }
     
     // CallBack interface in client 
@@ -28,6 +27,10 @@ namespace GameService
         [OperationContract(IsOneWay = false)]
         [FaultContract(typeof(FaultException<string>))]
         String NewAnnounce(String msg, int ex);
+
+        [OperationContract(IsOneWay = false)]
+        [FaultContract(typeof(FaultException<string>))]
+        string NewAdvertisement(string msg, int ex);
     }
 
 
@@ -39,26 +42,9 @@ namespace GameService
 
         [OperationContract]
         void EndGame();
+
+        [OperationContract]
+        void SetAdv(string adv);
     }
 
-    [DataContract]
-    public class CompositeType
-    {
-        bool boolValue = true;
-        string stringValue = "Hello ";
-
-        [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
-    }
 }

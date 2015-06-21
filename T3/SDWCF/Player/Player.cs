@@ -1,37 +1,43 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
-using Player.ServiceReference1;
+using GamePlayer.ServiceReference1;
 
-namespace Player
+// ReSharper disable once CheckNamespace
+namespace GamePlayer
 {
     public partial class Player : Form
     {
         private SynchronizationContext _synchronizationContext;
         private IGamePlayer game;
-        private int lives;
+        private int lifes;
+        private string language;
+        private string advertisment;
+        private Dictionary<string, string> _lngShorts; 
 
         public Player()
         {
             InitializeComponent();
             _synchronizationContext = WindowsFormsSynchronizationContext.Current;
-            setLives(3);
+            SetLifes(3);
             Receiver rec = new Receiver(this,_synchronizationContext); // cria um objecto para receber callbacks
             game = new GamePlayerClient(new InstanceContext(rec));
             game.JoinGame();
         }
 
-        private void setLives(int i)
-        {
-            lives = i;
-            if (lives == 0)
-                exitGame("GAME OVER");
 
-            liveslb.Text = lives.ToString();
+        private void SetLifes(int i)
+        {
+            lifes = i;
+            if (lifes == 0)
+                ExitGame("GAME OVER");
+
+            liveslb.Text = lifes.ToString();
         }
 
-        public void exitGame(String winnerOrLoser)
+        public void ExitGame(String winnerOrLoser)
         {
             game.ExitGame();
             playButton.Visible = false;
@@ -43,18 +49,30 @@ namespace Player
         {
             int xvalue = Int32.Parse(xValue.Text);
             int yvalue = Int32.Parse(yValue.Text);
-            lastPlaysTB.Text = lastPlaysTB.Text + String.Format("\n({0},{1})", xvalue, yvalue);
+            lastPlaysTB.Text = lastPlaysTB.Text + String.Format("({0},{1})\n", xvalue, yvalue);
 
             String res = game.MakeMove(xvalue, yvalue);
 
             resultTB.Text = "";
 
             if(res.Equals("Death"))
-                setLives(--lives);
+                SetLifes(--lifes);
             else if(res.Equals("Life"))
-                setLives(++lives);
+                SetLifes(++lifes);
 
             resultTB.Text = res;
+        }
+
+        private void SetLanguage_Click(object sender, EventArgs e)
+        {
+            string targetLng = lngComboBox.Text.Substring(lngComboBox.Text.LastIndexOf(' ')+1);
+
+            game.TranslateAdv(targetLng);
+        }
+
+        public void SetAdvertisement(string adv)
+        {
+            advTextBox.Text = adv;
         }
         
     }
@@ -74,11 +92,20 @@ namespace Player
         {
             _synchronizationContext.Post(o =>
             {
-               player.exitGame(msg);
+               player.ExitGame(msg);
 
             }, null);
 
             return "";
+        }
+
+        public string NewAdvertisement(string msg, int ex)
+        {
+            _synchronizationContext.Post((o =>
+            {
+               player.SetAdvertisement(msg);
+            }), null);
+            return null;
         }
 
     }
