@@ -21,13 +21,22 @@ namespace GameManager
         private void startgameButton_Click(object sender, EventArgs e)
         {
             game = new GameManagerClient();
-            game.SetAdv(advTextBox.Text);
             game.StartGame(Int32.Parse(xValue.Text), Int32.Parse(yValue.Text));
         }
 
         private void Manager_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sendButton_Click(object sender, EventArgs e)
+        {
+            game.SetAdv(advTextBox.Text);
         }
 
     }

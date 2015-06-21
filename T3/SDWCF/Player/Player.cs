@@ -15,7 +15,8 @@ namespace GamePlayer
         private int lifes;
         private string language;
         private string advertisment;
-        private Dictionary<string, string> _lngShorts; 
+        private Dictionary<string, string> _lngShorts;
+        private string targetLng;
 
         public Player()
         {
@@ -65,14 +66,13 @@ namespace GamePlayer
 
         private void SetLanguage_Click(object sender, EventArgs e)
         {
-            string targetLng = lngComboBox.Text.Substring(lngComboBox.Text.LastIndexOf(' ')+1);
-
-            game.TranslateAdv(targetLng);
+            targetLng = lngComboBox.Text.Substring(lngComboBox.Text.LastIndexOf(' ')+1);
         }
 
         public void SetAdvertisement(string adv)
         {
-            advTextBox.Text = adv;
+            if (targetLng != null)
+                advTextBox.Text = game.TranslateAdv(targetLng); ;
         }
         
     }

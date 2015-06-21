@@ -37,6 +37,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.advTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.sendButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // xValue
@@ -58,7 +59,7 @@
             this.startgameButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.startgameButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.startgameButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.startgameButton.Location = new System.Drawing.Point(169, 165);
+            this.startgameButton.Location = new System.Drawing.Point(138, 112);
             this.startgameButton.Name = "startgameButton";
             this.startgameButton.Size = new System.Drawing.Size(94, 69);
             this.startgameButton.TabIndex = 2;
@@ -71,7 +72,7 @@
             this.endgameButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.endgameButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.endgameButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.endgameButton.Location = new System.Drawing.Point(29, 165);
+            this.endgameButton.Location = new System.Drawing.Point(24, 112);
             this.endgameButton.Name = "endgameButton";
             this.endgameButton.Size = new System.Drawing.Size(88, 69);
             this.endgameButton.TabIndex = 3;
@@ -84,7 +85,7 @@
             this.xLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.xLabel.Location = new System.Drawing.Point(116, 32);
             this.xLabel.Name = "xLabel";
-            this.xLabel.Size = new System.Drawing.Size(32, 37);
+            this.xLabel.Size = new System.Drawing.Size(16, 20);
             this.xLabel.TabIndex = 4;
             this.xLabel.Text = "x";
             // 
@@ -94,7 +95,7 @@
             this.yLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.yLabel.Location = new System.Drawing.Point(116, 73);
             this.yLabel.Name = "yLabel";
-            this.yLabel.Size = new System.Drawing.Size(32, 37);
+            this.yLabel.Size = new System.Drawing.Size(16, 20);
             this.yLabel.TabIndex = 5;
             this.yLabel.Text = "y";
             // 
@@ -104,25 +105,36 @@
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(43, 56);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(106, 39);
+            this.label1.Size = new System.Drawing.Size(52, 19);
             this.label1.TabIndex = 6;
             this.label1.Text = "Border";
             // 
             // advTextBox
             // 
-            this.advTextBox.Location = new System.Drawing.Point(95, 118);
+            this.advTextBox.Location = new System.Drawing.Point(104, 200);
             this.advTextBox.Name = "advTextBox";
-            this.advTextBox.Size = new System.Drawing.Size(168, 20);
+            this.advTextBox.Size = new System.Drawing.Size(159, 20);
             this.advTextBox.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 121);
+            this.label2.Location = new System.Drawing.Point(21, 203);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 8;
             this.label2.Text = "Advertisement:";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
+            // 
+            // sendButton
+            // 
+            this.sendButton.Location = new System.Drawing.Point(186, 231);
+            this.sendButton.Name = "sendButton";
+            this.sendButton.Size = new System.Drawing.Size(77, 23);
+            this.sendButton.TabIndex = 9;
+            this.sendButton.Text = "Send";
+            this.sendButton.UseVisualStyleBackColor = true;
+            this.sendButton.Click += new System.EventHandler(this.sendButton_Click);
             // 
             // Manager
             // 
@@ -130,6 +142,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(275, 266);
+            this.Controls.Add(this.sendButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.advTextBox);
             this.Controls.Add(this.label1);
@@ -158,6 +171,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox advTextBox;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button sendButton;
     }
 }
 

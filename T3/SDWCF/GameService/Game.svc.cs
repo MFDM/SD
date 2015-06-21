@@ -11,6 +11,7 @@ namespace GameService
         private List<IGamePlayerReceiverCallback> players = new List<IGamePlayerReceiverCallback>(); 
         private Board b;
         private string adv;
+
         public void StartGame(int n1, int n2)
         {
             b = new Board(n1, n2);
@@ -24,6 +25,7 @@ namespace GameService
         public void SetAdv(string adv)
         {
             this.adv = adv;
+            players.ForEach((c) => { c.NewAdvertisement(adv, 0); });
         }
 
         public string MakeMove(int n1, int n2)
@@ -60,7 +62,7 @@ namespace GameService
             sourceLng = svc.Detect("F4E6E0444F32B660BED9908E9744594B53D2E864", adv);
             translatedAdv = svc.Translate("F4E6E0444F32B660BED9908E9744594B53D2E864", adv, sourceLng, targetLng, "text/html", "general");
 
-            currClient.NewAdvertisement(translatedAdv, 0);
+            //currClient.NewAdvertisement(translatedAdv, 0);
 
             return translatedAdv;
         }
