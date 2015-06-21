@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 namespace GamePlayer
@@ -15,7 +13,7 @@ namespace GamePlayer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Player());
+            Application.Run((Form) new Player());
         }
     }
 }

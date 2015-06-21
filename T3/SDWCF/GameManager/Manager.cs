@@ -20,6 +20,7 @@ namespace GameManager
 
         private void startgameButton_Click(object sender, EventArgs e)
         {
+            if (xValue.Text == "" || yValue.Text == "") return;
             game = new GameManagerClient();
             game.StartGame(Int32.Parse(xValue.Text), Int32.Parse(yValue.Text));
         }

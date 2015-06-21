@@ -17,7 +17,10 @@
   </xs:element>
   <xs:element name="JoinGame">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="language" nillable="true" type="xs:string" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="JoinGameResponse">
@@ -33,20 +36,6 @@
   <xs:element name="ExitGameResponse">
     <xs:complexType>
       <xs:sequence />
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TranslateAdv">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="targetLng" nillable="true" type="xs:string" />
-      </xs:sequence>
-    </xs:complexType>
-  </xs:element>
-  <xs:element name="TranslateAdvResponse">
-    <xs:complexType>
-      <xs:sequence>
-        <xs:element minOccurs="0" name="TranslateAdvResult" nillable="true" type="xs:string" />
-      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="NewAnnounce">

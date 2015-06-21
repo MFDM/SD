@@ -46,13 +46,15 @@
             this.lngComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.SetLanguage = new System.Windows.Forms.Button();
+            this.RegistButton = new System.Windows.Forms.Button();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // xLabel
             // 
             this.xLabel.AutoSize = true;
-            this.xLabel.Location = new System.Drawing.Point(110, 72);
+            this.xLabel.Location = new System.Drawing.Point(128, 175);
             this.xLabel.Name = "xLabel";
             this.xLabel.Size = new System.Drawing.Size(15, 13);
             this.xLabel.TabIndex = 0;
@@ -61,7 +63,7 @@
             // yLabel
             // 
             this.yLabel.AutoSize = true;
-            this.yLabel.Location = new System.Drawing.Point(110, 111);
+            this.yLabel.Location = new System.Drawing.Point(128, 216);
             this.yLabel.Name = "yLabel";
             this.yLabel.Size = new System.Drawing.Size(15, 13);
             this.yLabel.TabIndex = 1;
@@ -69,14 +71,14 @@
             // 
             // xValue
             // 
-            this.xValue.Location = new System.Drawing.Point(131, 69);
+            this.xValue.Location = new System.Drawing.Point(150, 175);
             this.xValue.Name = "xValue";
             this.xValue.Size = new System.Drawing.Size(76, 20);
             this.xValue.TabIndex = 2;
             // 
             // yValue
             // 
-            this.yValue.Location = new System.Drawing.Point(131, 108);
+            this.yValue.Location = new System.Drawing.Point(150, 216);
             this.yValue.Name = "yValue";
             this.yValue.Size = new System.Drawing.Size(76, 20);
             this.yValue.TabIndex = 3;
@@ -92,9 +94,10 @@
             // playButton
             // 
             this.playButton.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.playButton.Enabled = false;
             this.playButton.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.playButton.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.playButton.Location = new System.Drawing.Point(239, 52);
+            this.playButton.Location = new System.Drawing.Point(235, 172);
             this.playButton.Name = "playButton";
             this.playButton.Size = new System.Drawing.Size(106, 97);
             this.playButton.TabIndex = 5;
@@ -105,7 +108,7 @@
             // 
             // lastPlaysTB
             // 
-            this.lastPlaysTB.Location = new System.Drawing.Point(12, 53);
+            this.lastPlaysTB.Location = new System.Drawing.Point(21, 172);
             this.lastPlaysTB.Name = "lastPlaysTB";
             this.lastPlaysTB.ReadOnly = true;
             this.lastPlaysTB.Size = new System.Drawing.Size(77, 136);
@@ -115,7 +118,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 36);
+            this.label1.Location = new System.Drawing.Point(18, 146);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 7;
@@ -123,7 +126,7 @@
             // 
             // resultTB
             // 
-            this.resultTB.Location = new System.Drawing.Point(239, 169);
+            this.resultTB.Location = new System.Drawing.Point(235, 295);
             this.resultTB.Name = "resultTB";
             this.resultTB.ReadOnly = true;
             this.resultTB.Size = new System.Drawing.Size(106, 20);
@@ -132,7 +135,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(188, 172);
+            this.label2.Location = new System.Drawing.Point(176, 302);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 9;
@@ -141,7 +144,7 @@
             // liveslb
             // 
             this.liveslb.AutoSize = true;
-            this.liveslb.Location = new System.Drawing.Point(156, 25);
+            this.liveslb.Location = new System.Drawing.Point(180, 146);
             this.liveslb.Name = "liveslb";
             this.liveslb.Size = new System.Drawing.Size(0, 13);
             this.liveslb.TabIndex = 10;
@@ -149,7 +152,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(115, 25);
+            this.label3.Location = new System.Drawing.Point(174, 146);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 13);
             this.label3.TabIndex = 11;
@@ -158,15 +161,15 @@
             // 
             this.WOL.AutoSize = true;
             this.WOL.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WOL.Location = new System.Drawing.Point(213, 84);
+            this.WOL.Location = new System.Drawing.Point(198, 131);
             this.WOL.Name = "WOL";
-            this.WOL.Size = new System.Drawing.Size(0, 56);
+            this.WOL.Size = new System.Drawing.Size(0, 28);
             this.WOL.TabIndex = 12;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(115, 25);
+            this.label4.Location = new System.Drawing.Point(133, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 13);
             this.label4.TabIndex = 13;
@@ -174,7 +177,7 @@
             // 
             // advTextBox
             // 
-            this.advTextBox.Location = new System.Drawing.Point(131, 221);
+            this.advTextBox.Location = new System.Drawing.Point(127, 365);
             this.advTextBox.Name = "advTextBox";
             this.advTextBox.ReadOnly = true;
             this.advTextBox.Size = new System.Drawing.Size(214, 20);
@@ -189,15 +192,15 @@
             "Russian - ru",
             "Spanish - es",
             "French - fr"});
-            this.lngComboBox.Location = new System.Drawing.Point(12, 221);
+            this.lngComboBox.Location = new System.Drawing.Point(27, 51);
             this.lngComboBox.Name = "lngComboBox";
-            this.lngComboBox.Size = new System.Drawing.Size(103, 21);
+            this.lngComboBox.Size = new System.Drawing.Size(141, 21);
             this.lngComboBox.TabIndex = 15;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(12, 202);
+            this.label5.Location = new System.Drawing.Point(24, 35);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(58, 13);
             this.label5.TabIndex = 16;
@@ -206,29 +209,47 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(131, 202);
+            this.label6.Location = new System.Drawing.Point(21, 365);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(77, 13);
             this.label6.TabIndex = 17;
             this.label6.Text = "Advertisement:";
             // 
-            // SetLanguage
+            // RegistButton
             // 
-            this.SetLanguage.Location = new System.Drawing.Point(12, 249);
-            this.SetLanguage.Name = "SetLanguage";
-            this.SetLanguage.Size = new System.Drawing.Size(103, 23);
-            this.SetLanguage.TabIndex = 18;
-            this.SetLanguage.Text = "Set Language";
-            this.SetLanguage.UseVisualStyleBackColor = true;
-            this.SetLanguage.Click += new System.EventHandler(this.SetLanguage_Click);
+            this.RegistButton.Location = new System.Drawing.Point(123, 89);
+            this.RegistButton.Name = "RegistButton";
+            this.RegistButton.Size = new System.Drawing.Size(103, 23);
+            this.RegistButton.TabIndex = 18;
+            this.RegistButton.Text = "Regist";
+            this.RegistButton.UseVisualStyleBackColor = true;
+            this.RegistButton.Click += new System.EventHandler(this.SetLanguage_Click);
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Location = new System.Drawing.Point(186, 35);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(38, 13);
+            this.nameLabel.TabIndex = 19;
+            this.nameLabel.Text = "Name:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(189, 52);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(134, 20);
+            this.textBox1.TabIndex = 20;
             // 
             // Player
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
-            this.ClientSize = new System.Drawing.Size(357, 287);
-            this.Controls.Add(this.SetLanguage);
+            this.ClientSize = new System.Drawing.Size(353, 405);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.nameLabel);
+            this.Controls.Add(this.RegistButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lngComboBox);
@@ -248,8 +269,9 @@
             this.Controls.Add(this.yLabel);
             this.Controls.Add(this.xLabel);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Name = "GamePlayer";
+            this.Name = "Player";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Player_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +297,9 @@
         private System.Windows.Forms.ComboBox lngComboBox;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button SetLanguage;
+        private System.Windows.Forms.Button RegistButton;
+        private System.Windows.Forms.Label nameLabel;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

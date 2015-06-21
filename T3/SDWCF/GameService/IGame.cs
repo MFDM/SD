@@ -11,13 +11,13 @@ namespace GameService
         string MakeMove(int n1, int n2);
 
         [OperationContract]
-        void JoinGame();
+        void JoinGame(string name, string language);
         
         [OperationContract]
         void ExitGame();
 
-        [OperationContract]
-        string TranslateAdv(string targetLng);
+        /*[OperationContract]
+        string TranslateAdv(string targetLng);*/
 
     }
     

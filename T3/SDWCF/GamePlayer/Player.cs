@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.ServiceModel;
 using System.Threading;
 using System.Windows.Forms;
-using GamePlayer.ServiceReference1;
+using Player.ServiceReference1;
 
-// ReSharper disable once CheckNamespace
 namespace GamePlayer
 {
     public partial class Player : Form
@@ -13,19 +12,11 @@ namespace GamePlayer
         private SynchronizationContext _synchronizationContext;
         private IGamePlayer game;
         private int lifes;
-        private string language;
-        private string advertisment;
-        private Dictionary<string, string> _lngShorts;
-        private string targetLng;
 
         public Player()
         {
             InitializeComponent();
             _synchronizationContext = WindowsFormsSynchronizationContext.Current;
-            SetLifes(3);
-            Receiver rec = new Receiver(this,_synchronizationContext); // cria um objecto para receber callbacks
-            game = new GamePlayerClient(new InstanceContext(rec));
-            game.JoinGame();
         }
 
 
@@ -66,13 +57,24 @@ namespace GamePlayer
 
         private void SetLanguage_Click(object sender, EventArgs e)
         {
-            targetLng = lngComboBox.Text.Substring(lngComboBox.Text.LastIndexOf(' ')+1);
+            String n = textBox1.Text, l = lngComboBox.Text;
+            if (n == "" || l == "") return;
+            SetLifes(3);
+            Receiver rec = new Receiver(this, _synchronizationContext); // cria um objecto para receber callbacks
+            game = new GamePlayerClient(new InstanceContext(rec));
+            game.JoinGame(n, l.Substring(lngComboBox.Text.LastIndexOf(' ') + 1));
+            RegistButton.Enabled = false;
+            playButton.Enabled = true;
         }
 
         public void SetAdvertisement(string adv)
         {
-            if (targetLng != null)
-                advTextBox.Text = game.TranslateAdv(targetLng); ;
+            advTextBox.Text = adv; ;
+        }
+
+        private void Player_Load(object sender, EventArgs e)
+        {
+
         }
         
     }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GamePlayer.ServiceReference1 {
+namespace Player.ServiceReference1 {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -26,12 +26,12 @@ namespace GamePlayer.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGameManagerChannel : IGameManager, System.ServiceModel.IClientChannel {
+    public interface IGameManagerChannel : Player.ServiceReference1.IGameManager, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GameManagerClient : System.ServiceModel.ClientBase<IGameManager>, IGameManager {
+    public partial class GameManagerClient : System.ServiceModel.ClientBase<Player.ServiceReference1.IGameManager>, Player.ServiceReference1.IGameManager {
         
         public GameManagerClient() {
         }
@@ -66,20 +66,17 @@ namespace GamePlayer.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(Namespace="Silverlight", ConfigurationName="ServiceReference1.IGamePlayer", CallbackContract=typeof(IGamePlayerCallback))]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="Silverlight", ConfigurationName="ServiceReference1.IGamePlayer", CallbackContract=typeof(Player.ServiceReference1.IGamePlayerCallback))]
     public interface IGamePlayer {
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/MakeMove", ReplyAction="Silverlight/IGamePlayer/MakeMoveResponse")]
         string MakeMove(int n1, int n2);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/JoinGame", ReplyAction="Silverlight/IGamePlayer/JoinGameResponse")]
-        void JoinGame();
+        void JoinGame(string name, string language);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/ExitGame", ReplyAction="Silverlight/IGamePlayer/ExitGameResponse")]
         void ExitGame();
-        
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/TranslateAdv", ReplyAction="Silverlight/IGamePlayer/TranslateAdvResponse")]
-        string TranslateAdv(string targetLng);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -95,12 +92,12 @@ namespace GamePlayer.ServiceReference1 {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IGamePlayerChannel : IGamePlayer, System.ServiceModel.IClientChannel {
+    public interface IGamePlayerChannel : Player.ServiceReference1.IGamePlayer, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class GamePlayerClient : System.ServiceModel.DuplexClientBase<IGamePlayer>, IGamePlayer {
+    public partial class GamePlayerClient : System.ServiceModel.DuplexClientBase<Player.ServiceReference1.IGamePlayer>, Player.ServiceReference1.IGamePlayer {
         
         public GamePlayerClient(System.ServiceModel.InstanceContext callbackInstance) : 
                 base(callbackInstance) {
@@ -126,16 +123,12 @@ namespace GamePlayer.ServiceReference1 {
             return base.Channel.MakeMove(n1, n2);
         }
         
-        public void JoinGame() {
-            base.Channel.JoinGame();
+        public void JoinGame(string name, string language) {
+            base.Channel.JoinGame(name, language);
         }
         
         public void ExitGame() {
             base.Channel.ExitGame();
-        }
-        
-        public string TranslateAdv(string targetLng) {
-            return base.Channel.TranslateAdv(targetLng);
         }
     }
 }

@@ -73,13 +73,10 @@ namespace GameManager.ServiceReference1 {
         string MakeMove(int n1, int n2);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/JoinGame", ReplyAction="Silverlight/IGamePlayer/JoinGameResponse")]
-        void JoinGame();
+        void JoinGame(string name, string language);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/ExitGame", ReplyAction="Silverlight/IGamePlayer/ExitGameResponse")]
         void ExitGame();
-        
-        [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/TranslateAdv", ReplyAction="Silverlight/IGamePlayer/TranslateAdvResponse")]
-        string TranslateAdv(string targetLng);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -126,16 +123,12 @@ namespace GameManager.ServiceReference1 {
             return base.Channel.MakeMove(n1, n2);
         }
         
-        public void JoinGame() {
-            base.Channel.JoinGame();
+        public void JoinGame(string name, string language) {
+            base.Channel.JoinGame(name, language);
         }
         
         public void ExitGame() {
             base.Channel.ExitGame();
-        }
-        
-        public string TranslateAdv(string targetLng) {
-            return base.Channel.TranslateAdv(targetLng);
         }
     }
 }

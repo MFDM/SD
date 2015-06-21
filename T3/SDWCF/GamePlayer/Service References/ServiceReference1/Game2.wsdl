@@ -26,12 +26,6 @@
   <wsdl:message name="IGamePlayer_ExitGame_OutputMessage">
     <wsdl:part name="parameters" element="tns:ExitGameResponse" />
   </wsdl:message>
-  <wsdl:message name="IGamePlayer_TranslateAdv_InputMessage">
-    <wsdl:part name="parameters" element="tns:TranslateAdv" />
-  </wsdl:message>
-  <wsdl:message name="IGamePlayer_TranslateAdv_OutputMessage">
-    <wsdl:part name="parameters" element="tns:TranslateAdvResponse" />
-  </wsdl:message>
   <wsdl:message name="IGamePlayer_NewAnnounce_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NewAnnounce" />
   </wsdl:message>
@@ -62,10 +56,6 @@
     <wsdl:operation name="ExitGame">
       <wsdl:input wsaw:Action="Silverlight/IGamePlayer/ExitGame" message="tns:IGamePlayer_ExitGame_InputMessage" />
       <wsdl:output wsaw:Action="Silverlight/IGamePlayer/ExitGameResponse" message="tns:IGamePlayer_ExitGame_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="TranslateAdv">
-      <wsdl:input wsaw:Action="Silverlight/IGamePlayer/TranslateAdv" message="tns:IGamePlayer_TranslateAdv_InputMessage" />
-      <wsdl:output wsaw:Action="Silverlight/IGamePlayer/TranslateAdvResponse" message="tns:IGamePlayer_TranslateAdv_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="NewAnnounce">
       <wsdl:output wsaw:Action="Silverlight/IGamePlayer/NewAnnounce" message="tns:IGamePlayer_NewAnnounce_OutputCallbackMessage" />
