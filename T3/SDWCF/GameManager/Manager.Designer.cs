@@ -78,6 +78,7 @@
             this.endgameButton.TabIndex = 3;
             this.endgameButton.Text = "End Game";
             this.endgameButton.UseVisualStyleBackColor = false;
+            this.endgameButton.Click += new System.EventHandler(this.endgameButton_Click);
             // 
             // xLabel
             // 

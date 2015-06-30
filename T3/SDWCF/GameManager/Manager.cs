@@ -40,5 +40,10 @@ namespace GameManager
             game.SetAdv(advTextBox.Text);
         }
 
+        private void endgameButton_Click(object sender, EventArgs e)
+        {
+            game.EndGame();
+        }
+
     }
 }

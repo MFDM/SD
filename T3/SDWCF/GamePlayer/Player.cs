@@ -41,18 +41,25 @@ namespace GamePlayer
         {
             int xvalue = Int32.Parse(xValue.Text);
             int yvalue = Int32.Parse(yValue.Text);
-            lastPlaysTB.Text = lastPlaysTB.Text + String.Format("({0},{1})\n", xvalue, yvalue);
 
-            String res = game.MakeMove(xvalue, yvalue);
+            try
+            {
+                string res = game.MakeMove(xvalue, yvalue);
+                WOL.Text = "";
+                lastPlaysTB.Text = lastPlaysTB.Text + String.Format("({0},{1})\n", xvalue, yvalue);
+                resultTB.Text = "";
 
-            resultTB.Text = "";
+                if (res.Equals("Death"))
+                    SetLifes(--lifes);
+                else if (res.Equals("Life"))
+                    SetLifes(++lifes);
 
-            if(res.Equals("Death"))
-                SetLifes(--lifes);
-            else if(res.Equals("Life"))
-                SetLifes(++lifes);
-
-            resultTB.Text = res;
+                resultTB.Text = res;
+            }
+            catch (FaultException<GameNotStartedException> exception)
+            {
+                WOL.Text = exception.Message + " ";
+            }
         }
 
         private void SetLanguage_Click(object sender, EventArgs e)
@@ -73,6 +80,11 @@ namespace GamePlayer
         }
 
         private void Player_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WOL_Click(object sender, EventArgs e)
         {
 
         }

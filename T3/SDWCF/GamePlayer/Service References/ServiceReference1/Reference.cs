@@ -9,7 +9,54 @@
 //------------------------------------------------------------------------------
 
 namespace Player.ServiceReference1 {
+    using System.Runtime.Serialization;
+    using System;
     
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="GameNotStartedException", Namespace="http://schemas.datacontract.org/2004/07/GameService")]
+    [System.SerializableAttribute()]
+    public partial class GameNotStartedException : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string ErrorMessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string ErrorMessage {
+            get {
+                return this.ErrorMessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ErrorMessageField, value) != true)) {
+                    this.ErrorMessageField = value;
+                    this.RaisePropertyChanged("ErrorMessage");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ServiceReference1.IGameManager")]
@@ -70,6 +117,7 @@ namespace Player.ServiceReference1 {
     public interface IGamePlayer {
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/MakeMove", ReplyAction="Silverlight/IGamePlayer/MakeMoveResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(Player.ServiceReference1.GameNotStartedException), Action="Silverlight/IGamePlayer/MakeMoveGameNotStartedExceptionFault", ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Name="GameNotStartedException", Namespace="http://schemas.datacontract.org/2004/07/GameService")]
         string MakeMove(int n1, int n2);
         
         [System.ServiceModel.OperationContractAttribute(ProtectionLevel=System.Net.Security.ProtectionLevel.EncryptAndSign, Action="Silverlight/IGamePlayer/JoinGame", ReplyAction="Silverlight/IGamePlayer/JoinGameResponse")]

@@ -3,9 +3,10 @@
   <wsdl:types>
     <xsd:schema targetNamespace="Silverlight/Imports">
       <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd0" namespace="Silverlight" />
+      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/GameService" />
       <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
-      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System" />
+      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/System.ServiceModel" />
+      <xsd:import schemaLocation="http://localhost:50338/Game.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="IGamePlayer_MakeMove_InputMessage">
@@ -13,6 +14,9 @@
   </wsdl:message>
   <wsdl:message name="IGamePlayer_MakeMove_OutputMessage">
     <wsdl:part name="parameters" element="tns:MakeMoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IGamePlayer_MakeMove_GameNotStartedExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/GameService" name="detail" element="q1:GameNotStartedException" />
   </wsdl:message>
   <wsdl:message name="IGamePlayer_JoinGame_InputMessage">
     <wsdl:part name="parameters" element="tns:JoinGame" />
@@ -33,7 +37,7 @@
     <wsdl:part name="parameters" element="tns:NewAnnounceResponse" />
   </wsdl:message>
   <wsdl:message name="IGamePlayer_NewAnnounce_FaultExceptionOf_StringFault_FaultMessage">
-    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q1:FaultExceptionOfstring" />
+    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultExceptionOfstring" />
   </wsdl:message>
   <wsdl:message name="IGamePlayer_NewAdvertisement_OutputCallbackMessage">
     <wsdl:part name="parameters" element="tns:NewAdvertisement" />
@@ -42,12 +46,13 @@
     <wsdl:part name="parameters" element="tns:NewAdvertisementResponse" />
   </wsdl:message>
   <wsdl:message name="IGamePlayer_NewAdvertisement_FaultExceptionOf_StringFault_FaultMessage">
-    <wsdl:part xmlns:q2="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q2:FaultExceptionOfstring" />
+    <wsdl:part xmlns:q3="http://schemas.datacontract.org/2004/07/System.ServiceModel" name="detail" element="q3:FaultExceptionOfstring" />
   </wsdl:message>
   <wsdl:portType name="IGamePlayer">
     <wsdl:operation name="MakeMove">
       <wsdl:input wsaw:Action="Silverlight/IGamePlayer/MakeMove" message="tns:IGamePlayer_MakeMove_InputMessage" />
       <wsdl:output wsaw:Action="Silverlight/IGamePlayer/MakeMoveResponse" message="tns:IGamePlayer_MakeMove_OutputMessage" />
+      <wsdl:fault wsaw:Action="Silverlight/IGamePlayer/MakeMoveGameNotStartedExceptionFault" name="GameNotStartedExceptionFault" message="tns:IGamePlayer_MakeMove_GameNotStartedExceptionFault_FaultMessage" />
     </wsdl:operation>
     <wsdl:operation name="JoinGame">
       <wsdl:input wsaw:Action="Silverlight/IGamePlayer/JoinGame" message="tns:IGamePlayer_JoinGame_InputMessage" />
