@@ -161,10 +161,11 @@
             // 
             this.WOL.AutoSize = true;
             this.WOL.Font = new System.Drawing.Font("Palatino Linotype", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WOL.Location = new System.Drawing.Point(198, 131);
+            this.WOL.Location = new System.Drawing.Point(44, 323);
             this.WOL.Name = "WOL";
             this.WOL.Size = new System.Drawing.Size(0, 28);
             this.WOL.TabIndex = 12;
+            this.WOL.Click += new System.EventHandler(this.WOL_Click);
             // 
             // label4
             // 

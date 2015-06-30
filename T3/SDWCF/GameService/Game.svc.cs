@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.ServiceModel;
+using System.Xml.Schema;
 
 namespace GameService
 {
@@ -30,6 +32,10 @@ namespace GameService
 
         public string MakeMove(int n1, int n2)
         {
+            if (b == null)
+                throw new FaultException<GameNotStartedException>(
+                    new GameNotStartedException("You have to wait!"),
+                    new FaultReason("The game was not started by Manager."));
             IGamePlayerReceiverCallback currClient = OperationContext.Current.GetCallbackChannel<IGamePlayerReceiverCallback>();
             String res = b._celsContainer[n1][n2].cellContent;
             if (res != "Treasure")
@@ -94,5 +100,17 @@ namespace GameService
             }
         }
 
+    }
+
+    [DataContract]
+    public class GameNotStartedException
+    {
+        public GameNotStartedException(string message)
+        {
+            ErrorMessage = message;
+        }
+
+        [DataMember]
+        public string ErrorMessage { get; set; }
     }
 }

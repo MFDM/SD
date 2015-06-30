@@ -8,6 +8,7 @@ namespace GameService
     public interface IGamePlayer
     {
         [OperationContract]
+        [FaultContract(typeof(GameNotStartedException))]
         string MakeMove(int n1, int n2);
 
         [OperationContract]

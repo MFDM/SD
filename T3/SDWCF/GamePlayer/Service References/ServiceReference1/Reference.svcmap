@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3fb95889-3073-4402-8749-81e8a1c0065e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="7102397d-3414-4748-8021-80ce5ad00fc6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
     <EnableDataBinding>true</EnableDataBinding>
@@ -21,15 +21,16 @@
     <MetadataSource Address="http://localhost:50338/Game.svc" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="Game.wsdl" MetadataType="Wsdl" ID="1bc948bb-889d-45a9-b80d-68034c784ed0" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?wsdl" />
-    <MetadataFile FileName="Game.xsd" MetadataType="Schema" ID="2688351d-93fc-4bd4-8fe3-407afe1fb5bf" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd3" />
-    <MetadataFile FileName="Game1.xsd" MetadataType="Schema" ID="578c912c-c013-4712-ad96-abce84ca50a7" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd1" />
-    <MetadataFile FileName="Game1.wsdl" MetadataType="Wsdl" ID="5f770dde-4891-4b20-8fa4-a4e11faa1855" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?wsdl=wsdl1" />
-    <MetadataFile FileName="Game2.wsdl" MetadataType="Wsdl" ID="bb1a7a34-2a22-44d1-ab52-a59a8f39261b" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?wsdl=wsdl0" />
-    <MetadataFile FileName="Game.disco" MetadataType="Disco" ID="5dd06ddd-a1f7-45a5-bbdc-72e8b303a94a" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?disco" />
-    <MetadataFile FileName="Game2.xsd" MetadataType="Schema" ID="d79c65b5-2bd8-44d4-b00a-003c3615052b" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd2" />
-    <MetadataFile FileName="Game3.xsd" MetadataType="Schema" ID="cbb824d6-366e-4b09-8fcf-b6b9046e948a" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd4" />
-    <MetadataFile FileName="Game4.xsd" MetadataType="Schema" ID="9ef5f959-c19b-47ff-8485-1933122d9b66" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd0" />
+    <MetadataFile FileName="Game.wsdl" MetadataType="Wsdl" ID="3168b1e8-1bf1-4c9e-a674-46dba53464ee" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?wsdl" />
+    <MetadataFile FileName="Game.xsd" MetadataType="Schema" ID="4b063555-9f9c-4d1d-90cf-91942204408c" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd3" />
+    <MetadataFile FileName="Game1.xsd" MetadataType="Schema" ID="a6315bcc-0062-408b-8d43-21d50586c236" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd1" />
+    <MetadataFile FileName="Game1.wsdl" MetadataType="Wsdl" ID="5f53722f-9ce7-499d-8e0d-842d226ef1c9" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?wsdl=wsdl1" />
+    <MetadataFile FileName="Game2.xsd" MetadataType="Schema" ID="152ddf8b-4ae4-4666-aa36-745a0b5823e3" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd4" />
+    <MetadataFile FileName="Game2.wsdl" MetadataType="Wsdl" ID="a672c04a-ff72-4fb6-bffa-f50b87bc8c3b" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?wsdl=wsdl0" />
+    <MetadataFile FileName="Game.disco" MetadataType="Disco" ID="a0d8337c-ec04-4f69-adb1-282017ca0e24" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?disco" />
+    <MetadataFile FileName="Game3.xsd" MetadataType="Schema" ID="fdf50627-5f55-48db-8b98-4fa132255821" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd5" />
+    <MetadataFile FileName="Game4.xsd" MetadataType="Schema" ID="a0da9a47-2feb-4849-8267-1b38df3948c0" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd2" />
+    <MetadataFile FileName="Game5.xsd" MetadataType="Schema" ID="47a7489b-a04e-4e4f-be5c-cc33ba1aef96" SourceId="1" SourceUrl="http://localhost:50338/Game.svc?xsd=xsd0" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
